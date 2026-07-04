@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #1E3A5F;
+  --color-ink: #1a1a1a;
+  --color-muted: #6b7280;
+  --color-line: #e5e7eb;
+  --color-surface: #ffffff;
+  --color-subtle: #f7f8fa;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+body { color: var(--color-ink); background: var(--color-surface); }
+
+:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; }
