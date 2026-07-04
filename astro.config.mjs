@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://teddykmj.github.io',
@@ -10,5 +11,6 @@ export default defineConfig({
     locales: ['ko', 'en'],
     routing: { prefixDefaultLocale: true },
   },
+  integrations: [sitemap()],
   vite: { plugins: [tailwindcss()] },
 });

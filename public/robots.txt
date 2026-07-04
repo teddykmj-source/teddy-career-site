@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://teddykmj.github.io/teddy-career-site/sitemap-index.xml
