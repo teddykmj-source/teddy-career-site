@@ -1,0 +1,14 @@
+---
+import SectionLayout from './SectionLayout.astro';
+import type { SiteContent } from '../data/types';
+interface Props { content: SiteContent; }
+const { content } = Astro.props;
+---
+<SectionLayout id="about" title={content.aboutTitle}>
+  <p class="mb-4 text-sm leading-relaxed text-[--color-muted]">{content.about}</p>
+  <div class="flex flex-wrap gap-2">
+    {content.skills.map((s) => (
+      <span class="whitespace-nowrap rounded-full border border-[--color-line] bg-[--color-subtle] px-3 py-1 text-xs text-[--color-muted]">{s}</span>
+    ))}
+  </div>
+</SectionLayout>

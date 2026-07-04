@@ -1,0 +1,18 @@
+---
+import SectionLayout from './SectionLayout.astro';
+import type { SiteContent } from '../data/types';
+interface Props { content: SiteContent; }
+const { content } = Astro.props;
+---
+<SectionLayout id="experience" title={content.experienceTitle}>
+  <ol class="flex flex-col gap-6 border-l-2 border-[--color-line] pl-6">
+    {content.experience.map((job) => (
+      <li class="relative">
+        <span class:list={["absolute -left-[29px] top-1 h-2.5 w-2.5 rounded-full", job.current ? "bg-brand" : "bg-[--color-muted]"]} />
+        <div class="mb-0.5 text-xs text-[--color-muted]">{job.period}</div>
+        <div class="text-[15px] font-medium">{job.title}</div>
+        <p class="mt-1 text-[13px] leading-relaxed text-[--color-muted]">{job.description}</p>
+      </li>
+    ))}
+  </ol>
+</SectionLayout>

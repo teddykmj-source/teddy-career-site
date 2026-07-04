@@ -1,0 +1,18 @@
+---
+import SectionLayout from './SectionLayout.astro';
+import Icon from './Icon.astro';
+import type { SiteContent } from '../data/types';
+interface Props { content: SiteContent; }
+const { content } = Astro.props;
+---
+<SectionLayout id="highlights" title={content.highlightsTitle}>
+  <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+    {content.highlights.map((h) => (
+      <div class="rounded-xl border border-[--color-line] bg-[--color-subtle] p-[18px]">
+        <Icon name={h.icon as 'award' | 'shield' | 'gavel'} class="w-[22px] h-[22px] text-brand" />
+        <div class="mb-1.5 mt-3 text-sm font-medium">{h.title}</div>
+        <p class="text-xs leading-relaxed text-[--color-muted]">{h.description}</p>
+      </div>
+    ))}
+  </div>
+</SectionLayout>
