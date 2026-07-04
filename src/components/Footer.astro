@@ -1,0 +1,18 @@
+---
+import Icon from './Icon.astro';
+import { contact } from '../data/contact';
+import type { SiteContent } from '../data/types';
+interface Props { content: SiteContent; }
+const { content } = Astro.props;
+---
+<footer class="flex flex-wrap items-center justify-between gap-3 border-t border-[--color-line] px-7 py-8 md:px-9">
+  <p class="text-sm text-[--color-muted]">{content.footerNote}</p>
+  <div class="flex gap-4 text-sm text-[--color-muted]">
+    <a href={`mailto:${contact.email}`} class="inline-flex items-center gap-1.5 hover:text-brand">
+      <Icon name="mail" class="w-4 h-4" />{contact.email}
+    </a>
+    <a href={contact.linkedin} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-brand">
+      <Icon name="linkedin" class="w-4 h-4" />LinkedIn
+    </a>
+  </div>
+</footer>

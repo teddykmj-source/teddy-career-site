@@ -1,0 +1,18 @@
+---
+import LanguageToggle from './LanguageToggle.astro';
+import type { SiteContent } from '../data/types';
+import type { Locale } from '../i18n/config';
+interface Props { locale: Locale; content: SiteContent; }
+const { locale, content } = Astro.props;
+---
+<nav class="flex items-center justify-between border-b border-[--color-line] px-6 py-3.5 md:px-8">
+  <span class="text-[15px] font-medium">
+    Teddy <span class="font-normal text-[--color-muted]">· Minjae Kim</span>
+  </span>
+  <div class="flex items-center gap-4 md:gap-5">
+    <a href="#about" class="hidden text-[13px] text-[--color-muted] hover:text-[--color-ink] sm:inline">{content.nav.about}</a>
+    <a href="#experience" class="hidden text-[13px] text-[--color-muted] hover:text-[--color-ink] sm:inline">{content.nav.experience}</a>
+    <a href="#highlights" class="hidden text-[13px] text-[--color-muted] hover:text-[--color-ink] sm:inline">{content.nav.highlights}</a>
+    <LanguageToggle locale={locale} />
+  </div>
+</nav>
