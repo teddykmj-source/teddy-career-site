@@ -1,7 +1,11 @@
 ---
 import '../styles/global.css';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 interface Props { title: string; description: string; lang: string; }
 const { title, description, lang } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const koUrl = new URL(getRelativeLocaleUrl('ko', ''), Astro.site);
+const enUrl = new URL(getRelativeLocaleUrl('en', ''), Astro.site);
 ---
 <!doctype html>
 <html lang={lang}>
@@ -10,6 +14,15 @@ const { title, description, lang } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+    <link rel="alternate" hreflang="ko" href={koUrl.href} />
+    <link rel="alternate" hreflang="en" href={enUrl.href} />
+    <link rel="alternate" hreflang="x-default" href={koUrl.href} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
   </head>
   <body>
