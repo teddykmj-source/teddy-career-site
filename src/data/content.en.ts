@@ -67,6 +67,7 @@ export const en: SiteContent = {
   ],
   activitiesTitle: 'ACTIVITIES & AWARDS',
   activities: [
+    '2021 KIPO Commissioner’s Award — Corporate IP Master (government honor)',
     '2026 KIPA President’s Award — employee-invention compensation best practice (led the bid)',
     '2026 KIPO Commissioner’s Award — SEP creation support program excellence (led the bid)',
     '2022 ICT Patent Management Grand Prize, Minister of Science and ICT Award (led the bid)',

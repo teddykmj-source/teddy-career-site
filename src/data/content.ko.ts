@@ -67,6 +67,7 @@ export const ko: SiteContent = {
   ],
   activitiesTitle: 'ACTIVITIES & AWARDS',
   activities: [
+    '2021 기업지식재산명장 특허청장상 수상 (정부포상)',
     '2026 직무발명보상 우수사례 공모전 한국발명진흥회장상 수상 추진',
     '2026 표준특허창출 지원사업 우수기업 지식재산처장상 수상 추진',
     '2022 ICT특허경영대상 과학기술정보통신부장관상 수상 추진',
