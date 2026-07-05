@@ -4,18 +4,23 @@ import Icon from './Icon.astro';
 import type { SiteContent } from '../data/types';
 interface Props { content: SiteContent; }
 const { content } = Astro.props;
+const short = (u: string) => {
+  const s = u.replace(/^https?:\/\//, '');
+  return s.length > 45 ? s.slice(0, 45) + '…' : s;
+};
 ---
 <SectionLayout id="press" title={content.pressTitle}>
   <ul class="flex flex-col gap-5">
     {content.press.map((group) => (
       <li>
         <div class="mb-2 text-sm font-medium">{group.title}</div>
-        <div class="flex flex-wrap gap-x-4 gap-y-1.5">
+        <div class="flex flex-col gap-1.5">
           {group.links.map((link) => (
             <a href={link.url} target="_blank" rel="noopener"
-               class="inline-flex items-center gap-1 text-[13px] text-[--color-muted] hover:text-brand">
-              {link.outlet}
-              <Icon name="external" class="w-3.5 h-3.5" />
+               class="flex max-w-full items-center gap-1.5 text-[13px] text-[--color-muted] hover:text-brand">
+              <span class="shrink-0 font-medium">{link.outlet}</span>
+              <span class="min-w-0 truncate text-[12px]">({short(link.url)})</span>
+              <Icon name="external" class="w-3.5 h-3.5 shrink-0" />
             </a>
           ))}
         </div>
