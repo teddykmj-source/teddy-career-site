@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://teddykmj.github.io',
+  site: 'https://teddykmj-source.github.io',
   base: '/teddy-career-site',
   trailingSlash: 'always',
   i18n: {
