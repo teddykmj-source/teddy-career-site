@@ -2,7 +2,7 @@ import type { SiteContent } from './types';
 
 export const ko: SiteContent = {
   fullName: 'Teddy · Minjae Kim',
-  eyebrow: '라이선스 · 표준특허 · 기술가치평가',
+  eyebrow: '라이선스 · 표준특허 · 분쟁대응 · 기술가치평가',
   headline: ['지식재산을 수익과 전략으로', '연결하는 IP 전문가'],
   tagline:
     '특허 창출·관리부터 국제 분쟁 대응, 직무발명 제도, 그리고 표준특허 수익화와 라이선스 감사까지 — 지식재산이 실제 사업 가치로 이어지는 전 과정을 다룹니다.',
@@ -65,6 +65,14 @@ export const ko: SiteContent = {
       description: '중국 디자인 침해소송 승소, 특허침해·무효 사건 다수 대응',
     },
   ],
+  activitiesTitle: 'ACTIVITIES & AWARDS',
+  activities: [
+    '2026 직무발명보상 우수사례 공모전 한국발명진흥회장상 수상 추진',
+    '2026 표준특허창출 지원사업 우수기업 지식재산처장상 수상 추진',
+    '2022 ICT특허경영대상 과학기술정보통신부장관상 수상 추진',
+    'KINPA(한국지식재산협회) 중소·중견기업분과 부위원장 (2020–2022)',
+    '중소기업 IP담당자 가이드북 참여위원 · 잡코리아 지식재산담당 인터뷰',
+  ],
   footerNote: '라이선스·표준특허·기술가치평가 협업을 환영합니다.',
-  nav: { about: '소개', experience: '경력', highlights: '성과' },
+  nav: { about: '소개', experience: '경력', highlights: '성과', activities: '활동' },
 };

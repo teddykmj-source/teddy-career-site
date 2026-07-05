@@ -6,7 +6,7 @@ export interface ExperienceItem {
   current?: boolean;
 }
 export interface Highlight { icon: string; title: string; description: string; }
-export interface NavLabels { about: string; experience: string; highlights: string; }
+export interface NavLabels { about: string; experience: string; highlights: string; activities: string; }
 export interface SiteContent {
   fullName: string;
   eyebrow: string;
@@ -21,6 +21,8 @@ export interface SiteContent {
   experience: ExperienceItem[];
   highlightsTitle: string;
   highlights: Highlight[];
+  activitiesTitle: string;
+  activities: string[];
   footerNote: string;
   nav: NavLabels;
 }

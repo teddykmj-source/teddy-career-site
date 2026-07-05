@@ -2,7 +2,7 @@ import type { SiteContent } from './types';
 
 export const en: SiteContent = {
   fullName: 'Teddy · Minjae Kim',
-  eyebrow: 'LICENSING · STANDARD-ESSENTIAL PATENTS · IP VALUATION',
+  eyebrow: 'LICENSING · SEP · DISPUTES · IP VALUATION',
   headline: ['Turning intellectual property', 'into revenue and strategy'],
   tagline:
     'From patent creation and portfolio management to international disputes, employee-invention systems, SEP monetization, and license audits — I cover the full path where IP becomes real business value.',
@@ -65,6 +65,14 @@ export const en: SiteContent = {
       description: 'Won a design-infringement suit in China; handled many infringement and invalidation cases.',
     },
   ],
+  activitiesTitle: 'ACTIVITIES & AWARDS',
+  activities: [
+    '2026 KIPA President’s Award — employee-invention compensation best practice (led the bid)',
+    '2026 KIPO Commissioner’s Award — SEP creation support program excellence (led the bid)',
+    '2022 ICT Patent Management Grand Prize, Minister of Science and ICT Award (led the bid)',
+    'KINPA (Korea Intellectual Property Association) — SME division vice-chair (2020–2022)',
+    'SME IP-officer guidebook contributing member; JobKorea IP-role interview feature',
+  ],
   footerNote: 'Open to collaboration on licensing, SEPs, and IP valuation.',
-  nav: { about: 'About', experience: 'Experience', highlights: 'Highlights' },
+  nav: { about: 'About', experience: 'Experience', highlights: 'Highlights', activities: 'Activities' },
 };
