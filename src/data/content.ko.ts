@@ -74,6 +74,40 @@ export const ko: SiteContent = {
     'KINPA(한국지식재산협회) 중소·중견기업분과 부위원장 (2020–2022)',
     '중소기업 IP담당자 가이드북 참여위원 · 잡코리아 지식재산담당 인터뷰',
   ],
+  pressTitle: 'IN THE PRESS',
+  press: [
+    {
+      title: '2021 기업지식재산명장 특허청장상 수상',
+      links: [
+        { outlet: '라이센스뉴스', url: 'https://www.lcnews.co.kr/news/articleView.html?idxno=27405' },
+        { outlet: '비즈월드', url: 'https://www.bizwnews.com/news/articleView.html?idxno=29725' },
+        { outlet: '보안뉴스', url: 'https://m.boannews.com/html/detail.html?idx=102745' },
+        { outlet: '상주뉴스', url: 'https://r2225.tistory.com/8727078' },
+      ],
+    },
+    {
+      title: '2026 직무발명 우수사례 한국발명진흥회장상 수상',
+      links: [
+        { outlet: '파이낸셜뉴스', url: 'https://www.fnnews.com/news/202606241027072274' },
+        { outlet: '아시아경제', url: 'https://www.asiae.co.kr/article/2026052708335509155' },
+      ],
+    },
+    {
+      title: '2022 ICT특허경영대상 과기정통부 장관상 수상',
+      links: [
+        { outlet: '큐리오시스', url: 'https://curiosis.co.kr/2022-ict-%ED%8A%B9%ED%97%88%EA%B2%BD%EC%98%81%EB%8C%80%EC%83%81-%EC%8B%9C%EC%83%81%EC%8B%9D-%EA%B0%9C%EC%B5%9C%EA%B8%B0%EC%97%85-6%EA%B0%9C%EC%82%AC%C2%B7%EA%B0%9C%EC%9D%B8-6%EC%9D%B8/' },
+        { outlet: '전자신문', url: 'https://www.etnews.com/20221213000125' },
+      ],
+    },
+    {
+      title: '잡코리아 지식재산담당 인터뷰',
+      links: [
+        { outlet: '잡코리아', url: 'https://www.jobkorea.co.kr/starter/interview/View/21524' },
+        { outlet: '잡코리아(미니)', url: 'https://www.jobkorea.co.kr/company/1377248' },
+        { outlet: '알바몬', url: 'https://m.albamon.com/alba-talk/interview/21524' },
+      ],
+    },
+  ],
   footerNote: '라이선스·표준특허·기술가치평가 협업을 환영합니다.',
-  nav: { about: '소개', experience: '경력', highlights: '성과', activities: '활동' },
+  nav: { about: '소개', experience: '경력', highlights: '성과', activities: '활동', press: '보도' },
 };

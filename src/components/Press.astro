@@ -1,0 +1,25 @@
+---
+import SectionLayout from './SectionLayout.astro';
+import Icon from './Icon.astro';
+import type { SiteContent } from '../data/types';
+interface Props { content: SiteContent; }
+const { content } = Astro.props;
+---
+<SectionLayout id="press" title={content.pressTitle}>
+  <ul class="flex flex-col gap-5">
+    {content.press.map((group) => (
+      <li>
+        <div class="mb-2 text-sm font-medium">{group.title}</div>
+        <div class="flex flex-wrap gap-x-4 gap-y-1.5">
+          {group.links.map((link) => (
+            <a href={link.url} target="_blank" rel="noopener"
+               class="inline-flex items-center gap-1 text-[13px] text-[--color-muted] hover:text-brand">
+              {link.outlet}
+              <Icon name="external" class="w-3.5 h-3.5" />
+            </a>
+          ))}
+        </div>
+      </li>
+    ))}
+  </ul>
+</SectionLayout>
