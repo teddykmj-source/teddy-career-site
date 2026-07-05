@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://teddy-career-site.vercel.app/sitemap-index.xml
+Sitemap: https://ipmoa.vercel.app/sitemap-index.xml
