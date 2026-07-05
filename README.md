@@ -1,6 +1,6 @@
 # teddy-career-site
 
-Teddy(Minjae Kim) IP 전문가 개인 브랜딩 웹사이트. Astro + Tailwind, 이중언어(KO/EN), GitHub Pages 배포.
+Teddy(Minjae Kim) IP 전문가 개인 브랜딩 웹사이트. Astro + Tailwind, 이중언어(KO/EN), Vercel 배포.
 
 ## 개발
 - `npm install` — 의존성 설치
@@ -12,11 +12,8 @@ Teddy(Minjae Kim) IP 전문가 개인 브랜딩 웹사이트. Astro + Tailwind, 
 - 표시 텍스트: `src/data/content.ko.ts`, `src/data/content.en.ts`
 - 연락처: `src/data/contact.ts`
 
-## 배포
-`main` 브랜치 push 시 GitHub Actions가 자동 빌드·배포한다.
-GitHub 저장소 Settings → Pages → Source를 **GitHub Actions**로 설정할 것.
-
-## 도메인/base 주의
-`astro.config.mjs`의 `site`/`base`는 프로젝트 페이지(`<user>.github.io/teddy-career-site`) 기준.
-커스텀 도메인 또는 `<user>.github.io` 유저 페이지로 옮기면 `base`를 `'/'`로 바꾸고
-`public/CNAME`(커스텀 도메인 시)을 추가한다.
+## 배포 (Vercel)
+Vercel 프로젝트에 이 GitHub 저장소를 연결하면 `main` push마다 자동 빌드·배포된다.
+서브도메인 루트에서 서비스되므로 `astro.config.mjs`의 `base`는 `'/'`.
+- `site`는 실제 배포 URL(`https://<project>.vercel.app`)과 일치시켜야 canonical/sitemap이 정확하다.
+- 이후 커스텀 도메인(`ipmoa.dev` 등)을 붙이면 Vercel Project → Domains에서 연결하고 `site`만 그 도메인으로 갱신한다.

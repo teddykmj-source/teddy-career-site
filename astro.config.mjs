@@ -3,8 +3,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://teddykmj-source.github.io',
-  base: '/teddy-career-site',
+  site: 'https://ipmoa.vercel.app',
+  base: '/',
   trailingSlash: 'always',
   i18n: {
     defaultLocale: 'ko',
