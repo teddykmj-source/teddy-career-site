@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://ipmoa.vercel.app',
+  site: 'https://teddy-career-site.vercel.app',
   base: '/',
   trailingSlash: 'always',
   i18n: {
