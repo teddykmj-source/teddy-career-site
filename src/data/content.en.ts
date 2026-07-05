@@ -8,7 +8,7 @@ export const en: SiteContent = {
     'From patent creation and portfolio management to international disputes, employee-invention systems, SEP monetization, and license audits — I cover the full path where IP becomes real business value.',
   ctaContact: 'Get in touch',
   stats: [
-    { value: '10+ yrs', label: 'In-house IP practice' },
+    { value: '11+ yrs', label: 'In-house IP practice' },
     { value: '2,200+', label: 'IP rights managed' },
     { value: '2×', label: 'KIPO Commissioner Award' },
     { value: '14', label: 'Certifications' },
@@ -39,7 +39,7 @@ export const en: SiteContent = {
       period: '2017.03 — 2022.03',
       title: 'Yonwoo · Advanced Research Team',
       description:
-        'Created and managed 2,200+ IP rights, handled international IP disputes (won a design-infringement suit in China), operated the employee-invention system, 2019 KIPO Commissioner Award.',
+        'Created and managed 2,200+ IP rights, handled international IP disputes (won a design-infringement suit in China), operated the employee-invention system, three-time employee-invention excellence certification, KIPO Commissioner Awards in 2019 and 2021.',
     },
     {
       period: '2015.01 — 2017.01',
