@@ -17,20 +17,24 @@ describe('자격증 데이터', () => {
     expect(ko.reduce((n, g) => n + g.items.length, 0)).toBe(14);
   });
 
-  it('각 항목의 name·issuer·date가 비어있지 않고 date는 YYYY.MM 형식', () => {
-    for (const g of ko) {
-      for (const c of g.items) {
-        expect(c.name.trim()).not.toBe('');
-        expect(c.issuer.trim()).not.toBe('');
-        expect(c.date).toMatch(/^\d{4}\.\d{2}$/);
+  it('각 항목의 name·issuer·date가 비어있지 않고 date는 YYYY.MM 형식 (KO·EN)', () => {
+    for (const list of [ko, en]) {
+      for (const g of list) {
+        for (const c of g.items) {
+          expect(c.name.trim()).not.toBe('');
+          expect(c.issuer.trim()).not.toBe('');
+          expect(c.date).toMatch(/^\d{4}\.\d{2}$/);
+        }
       }
     }
   });
 
-  it('그룹 내 항목은 취득연월 내림차순', () => {
-    for (const g of ko) {
-      const dates = g.items.map((c) => c.date);
-      expect(dates).toEqual([...dates].sort().reverse());
+  it('그룹 내 항목은 취득연월 내림차순 (KO·EN)', () => {
+    for (const list of [ko, en]) {
+      for (const g of list) {
+        const dates = g.items.map((c) => c.date);
+        expect(dates).toEqual([...dates].sort().reverse());
+      }
     }
   });
 
