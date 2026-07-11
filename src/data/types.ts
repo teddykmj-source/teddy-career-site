@@ -31,3 +31,5 @@ export interface SiteContent {
   footerNote: string;
   nav: NavLabels;
 }
+export interface Certification { date: string; name: string; issuer: string; }
+export interface CertGroup { title: string; tone: 'primary' | 'muted'; items: Certification[]; }
