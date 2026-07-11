@@ -25,4 +25,10 @@ describe('IP 소개 덱 정적 자산', () => {
     const html = readFileSync(deckPath, 'utf-8');
     expect(html).toContain("new URLSearchParams(location.search).has('edit')");
   });
+
+  it('연락처 Email·LinkedIn 행이 클릭 링크다', () => {
+    const html = readFileSync(deckPath, 'utf-8');
+    expect(html).toContain('<a href="mailto:teddykmj@naver.com"');
+    expect(html).toContain('<a href="https://www.linkedin.com/in/minjae-kim-29813215a/" target="_blank" rel="noopener"');
+  });
 });
