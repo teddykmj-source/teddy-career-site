@@ -33,4 +33,9 @@ describe('site content', () => {
     expect(contact.email).toMatch(/^[^@\s]+@[^@\s]+\.[^@\s]+$/);
     expect(contact.linkedin).toMatch(/^https:\/\/www\.linkedin\.com\//);
   });
+
+  it('덱 CTA 문구가 두 로케일에서 비어있지 않음', () => {
+    expect(ko.ctaDeck.trim()).not.toBe('');
+    expect(en.ctaDeck.trim()).not.toBe('');
+  });
 });

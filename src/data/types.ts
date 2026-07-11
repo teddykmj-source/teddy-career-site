@@ -15,6 +15,7 @@ export interface SiteContent {
   headline: string[];
   tagline: string;
   ctaContact: string;
+  ctaDeck: string;
   stats: Stat[];
   aboutTitle: string;
   about: string;

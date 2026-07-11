@@ -7,6 +7,7 @@ export const en: SiteContent = {
   tagline:
     'From patent creation and portfolio management to international disputes, employee-invention systems, SEP monetization, and license audits — I cover the full path where IP becomes real business value.',
   ctaContact: 'Get in touch',
+  ctaDeck: 'IP Profile Deck',
   stats: [
     { value: '11+ yrs', label: 'In-house IP practice' },
     { value: '2,200+', label: 'IP rights managed' },

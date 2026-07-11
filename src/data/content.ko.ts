@@ -7,6 +7,7 @@ export const ko: SiteContent = {
   tagline:
     '특허 창출·관리부터 국제 분쟁 대응, 직무발명 제도, 그리고 표준특허 수익화와 라이선스 감사까지 — 지식재산이 실제 사업 가치로 이어지는 전 과정을 다룹니다.',
   ctaContact: '연락하기',
+  ctaDeck: 'IP 소개 자료',
   stats: [
     { value: '11년+', label: 'IP 실무 경력' },
     { value: '2,200+', label: '지식재산권 관리' },

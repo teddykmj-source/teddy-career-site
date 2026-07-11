@@ -26,6 +26,9 @@ const base = import.meta.env.BASE_URL;
       <a href={contact.linkedin} target="_blank" rel="noopener" data-glass class="glass-btn px-4 py-2 text-[13px] text-white">
         <span class="glass-btn__inner"><Icon name="linkedin" class="w-4 h-4" />LinkedIn</span>
       </a>
+      <a href={`${base}deck/`} target="_blank" rel="noopener" data-glass class="glass-btn px-4 py-2 text-[13px] text-white">
+        <span class="glass-btn__inner"><Icon name="external" class="w-4 h-4" />{content.ctaDeck}</span>
+      </a>
     </div>
     <StatStrip stats={content.stats} />
   </div>
