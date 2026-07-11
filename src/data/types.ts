@@ -1,4 +1,4 @@
-export interface Stat { value: string; label: string; }
+export interface Stat { value: string; label: string; href?: string; }
 export interface ExperienceItem {
   period: string;
   title: string;
@@ -8,7 +8,7 @@ export interface ExperienceItem {
 export interface Highlight { icon: string; title: string; description: string; }
 export interface PressLink { outlet: string; url: string; }
 export interface PressGroup { title: string; links: PressLink[]; }
-export interface NavLabels { about: string; experience: string; highlights: string; activities: string; press: string; }
+export interface NavLabels { about: string; experience: string; highlights: string; activities: string; certifications: string; press: string; }
 export interface SiteContent {
   fullName: string;
   eyebrow: string;
@@ -24,6 +24,8 @@ export interface SiteContent {
   experience: ExperienceItem[];
   highlightsTitle: string;
   highlights: Highlight[];
+  certificationsTitle: string;
+  certViewAll: string;
   activitiesTitle: string;
   activities: string[];
   pressTitle: string;

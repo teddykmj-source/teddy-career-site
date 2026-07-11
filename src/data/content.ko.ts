@@ -12,7 +12,7 @@ export const ko: SiteContent = {
     { value: '11년+', label: 'IP 실무 경력' },
     { value: '2,200+', label: '지식재산권 관리' },
     { value: '2회', label: '특허청장상 수상' },
-    { value: '14', label: '보유 자격증' },
+    { value: '14', label: '보유 자격증', href: '/ko/certifications/' },
   ],
   aboutTitle: 'ABOUT',
   about:
@@ -48,6 +48,8 @@ export const ko: SiteContent = {
       description: '특허 명세서 작성·중간사건 대응, 선행기술조사, BM특허 3건 확보',
     },
   ],
+  certificationsTitle: 'CERTIFICATIONS',
+  certViewAll: '전체 자격증 보기 →',
   highlightsTitle: 'HIGHLIGHTS',
   highlights: [
     {
@@ -110,5 +112,5 @@ export const ko: SiteContent = {
     },
   ],
   footerNote: '라이선스·표준특허·기술가치평가 협업을 환영합니다.',
-  nav: { about: '소개', experience: '경력', highlights: '성과', activities: '활동', press: '보도' },
+  nav: { about: '소개', experience: '경력', highlights: '성과', activities: '활동', certifications: '자격', press: '보도' },
 };

@@ -12,7 +12,7 @@ export const en: SiteContent = {
     { value: '11+ yrs', label: 'In-house IP practice' },
     { value: '2,200+', label: 'IP rights managed' },
     { value: '2×', label: 'KIPO Commissioner Award' },
-    { value: '14', label: 'Certifications' },
+    { value: '14', label: 'Certifications', href: '/en/certifications/' },
   ],
   aboutTitle: 'ABOUT',
   about:
@@ -48,6 +48,8 @@ export const en: SiteContent = {
       description: 'Patent drafting and office-action response, prior-art search, secured 3 business-method patents.',
     },
   ],
+  certificationsTitle: 'CERTIFICATIONS',
+  certViewAll: 'View all certifications →',
   highlightsTitle: 'HIGHLIGHTS',
   highlights: [
     {
@@ -110,5 +112,5 @@ export const en: SiteContent = {
     },
   ],
   footerNote: 'Open to collaboration on licensing, SEPs, and IP valuation.',
-  nav: { about: 'About', experience: 'Experience', highlights: 'Highlights', activities: 'Activities', press: 'Press' },
+  nav: { about: 'About', experience: 'Experience', highlights: 'Highlights', activities: 'Activities', certifications: 'Certifications', press: 'Press' },
 };

@@ -1,0 +1,16 @@
+---
+// 메인 페이지 자격증 요약 섹션 — IP·기술가치평가 그룹만 + 전체 페이지 링크.
+import SectionLayout from './SectionLayout.astro';
+import CertList from './CertList.astro';
+import { getCertifications } from '../data';
+import type { SiteContent } from '../data/types';
+import type { Locale } from '../i18n/config';
+interface Props { locale: Locale; content: SiteContent; }
+const { locale, content } = Astro.props;
+const primary = getCertifications(locale).filter((g) => g.tone === 'primary');
+const allHref = `/${locale}/certifications/`;
+---
+<SectionLayout id="certifications" title={content.certificationsTitle}>
+  <CertList groups={primary} showGroupTitles={false} />
+  <a href={allHref} class="mt-5 inline-block text-[13px] font-medium text-brand hover:underline">{content.certViewAll}</a>
+</SectionLayout>
