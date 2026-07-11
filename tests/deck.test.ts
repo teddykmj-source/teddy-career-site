@@ -15,4 +15,14 @@ describe('IP 소개 덱 정적 자산', () => {
     expect(html).toContain('<!DOCTYPE html>');
     expect(html).toContain('김민재 · Teddy — IP 전문가 소개');
   });
+
+  it('연락처 Web 행이 허브(/ko/)로 가는 클릭 링크다', () => {
+    const html = readFileSync(deckPath, 'utf-8');
+    expect(html).toContain('<a href="/ko/" style="color:var(--cyan);text-decoration:none">ipmoa.vercel.app/ko</a>');
+  });
+
+  it('편집기가 ?edit=1 로 게이팅된다', () => {
+    const html = readFileSync(deckPath, 'utf-8');
+    expect(html).toContain("new URLSearchParams(location.search).has('edit')");
+  });
 });

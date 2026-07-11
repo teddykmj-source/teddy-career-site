@@ -501,7 +501,7 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
         </h1>
         <div class="contact">
           <div class="row reveal" style="--d:.65s"><span class="lbl">Email</span><span contenteditable="true">teddykmj@naver.com</span></div>
-          <div class="row reveal" style="--d:.78s"><span class="lbl">Web</span><span contenteditable="true">ipmoa.vercel.app/ko</span></div>
+          <div class="row reveal" style="--d:.78s"><span class="lbl">Web</span><a href="/ko/" style="color:var(--cyan);text-decoration:none">ipmoa.vercel.app/ko</a></div>
           <div class="row reveal" style="--d:.9s"><span class="lbl">Connect</span><span contenteditable="true">LinkedIn · 김민재 (Teddy)</span></div>
         </div>
       </div>
@@ -630,22 +630,29 @@ const editor={
     }catch(e){}
   }
 };
-editor.load();
-
-const hotzone=document.querySelector('.edit-hotzone');
-const editToggle=document.getElementById('editToggle');
-const exportBtn=document.getElementById('exportBtn');
-let hideTimeout=null;
-const showTools=()=>{clearTimeout(hideTimeout);editToggle.classList.add('show');exportBtn.classList.add('show');};
-const hideTools=()=>{hideTimeout=setTimeout(()=>{if(!editor.isActive){editToggle.classList.remove('show');exportBtn.classList.remove('show');}},400);};
-hotzone.addEventListener('mouseenter',showTools);
-hotzone.addEventListener('mouseleave',hideTools);
-editToggle.addEventListener('mouseenter',()=>clearTimeout(hideTimeout));
-editToggle.addEventListener('mouseleave',hideTools);
-exportBtn.addEventListener('mouseenter',()=>clearTimeout(hideTimeout));
-exportBtn.addEventListener('mouseleave',hideTools);
-hotzone.addEventListener('click',()=>editor.toggle());
-editToggle.addEventListener('click',()=>editor.toggle());
+// 공개 뷰에서는 편집 흔적을 감춘다. ?edit=1 로 접근할 때만 인라인 편집기 활성화.
+const EDIT_MODE=new URLSearchParams(location.search).has('edit');
+let exportBtn=null;
+if(!EDIT_MODE){
+  document.querySelectorAll('[contenteditable]').forEach(el=>el.removeAttribute('contenteditable'));
+  document.querySelectorAll('.edit-hotzone,.edit-toggle,.edit-hint,.export-btn').forEach(el=>el.remove());
+}else{
+  editor.load();
+  const hotzone=document.querySelector('.edit-hotzone');
+  const editToggle=document.getElementById('editToggle');
+  exportBtn=document.getElementById('exportBtn');
+  let hideTimeout=null;
+  const showTools=()=>{clearTimeout(hideTimeout);editToggle.classList.add('show');exportBtn.classList.add('show');};
+  const hideTools=()=>{hideTimeout=setTimeout(()=>{if(!editor.isActive){editToggle.classList.remove('show');exportBtn.classList.remove('show');}},400);};
+  hotzone.addEventListener('mouseenter',showTools);
+  hotzone.addEventListener('mouseleave',hideTools);
+  editToggle.addEventListener('mouseenter',()=>clearTimeout(hideTimeout));
+  editToggle.addEventListener('mouseleave',hideTools);
+  exportBtn.addEventListener('mouseenter',()=>clearTimeout(hideTimeout));
+  exportBtn.addEventListener('mouseleave',hideTools);
+  hotzone.addEventListener('click',()=>editor.toggle());
+  editToggle.addEventListener('click',()=>editor.toggle());
+}
 
 /* ===========================================
    EXPORT EDITED HTML  — bakes localStorage edits into a downloadable file
@@ -669,11 +676,13 @@ function exportHTML(){
   hint.classList.add('show'); hint.textContent='내보냄 ✓ 다운로드 폴더 확인';
   setTimeout(()=>{hint.textContent='편집 모드 · 텍스트 클릭 후 수정 · Ctrl/⌘+S 저장';if(!editor.isActive)hint.classList.remove('show');},2200);
 }
-exportBtn.addEventListener('click',exportHTML);
-document.addEventListener('keydown',e=>{
-  if((e.key==='e'||e.key==='E')&&!e.target.getAttribute('contenteditable')){editor.toggle();}
-  if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();if(editor.isActive)editor.save();}
-});
+if(EDIT_MODE){
+  if(exportBtn)exportBtn.addEventListener('click',exportHTML);
+  document.addEventListener('keydown',e=>{
+    if((e.key==='e'||e.key==='E')&&!e.target.getAttribute('contenteditable')){editor.toggle();}
+    if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();if(editor.isActive)editor.save();}
+  });
+}
 </script>
 </body>
 </html>
