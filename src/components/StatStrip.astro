@@ -5,9 +5,30 @@ const { stats } = Astro.props;
 ---
 <div class="mx-auto grid max-w-lg grid-cols-2 gap-3 sm:grid-cols-4">
   {stats.map((s) => (
-    <div class="rounded-lg bg-white/10 px-2 py-3.5 text-center">
+    <div class="stat-tile px-2 py-3.5 text-center">
       <div class="text-[22px] font-medium text-white">{s.value}</div>
       <div class="mt-0.5 text-xs text-[#BFD6F0]">{s.label}</div>
     </div>
   ))}
 </div>
+
+<style>
+  .stat-tile {
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    backdrop-filter: blur(12px) saturate(150%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.35s ease, box-shadow 0.35s ease;
+  }
+  .stat-tile:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 8px 22px rgba(8, 20, 40, 0.3);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .stat-tile { transition: none; }
+    .stat-tile:hover { transform: none; }
+  }
+</style>
