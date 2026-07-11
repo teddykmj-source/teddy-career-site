@@ -1,11 +1,11 @@
 ---
 import '../styles/global.css';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-interface Props { title: string; description: string; lang: string; }
-const { title, description, lang } = Astro.props;
+interface Props { title: string; description: string; lang: string; pathKey?: string; }
+const { title, description, lang, pathKey = '' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const koUrl = new URL(getRelativeLocaleUrl('ko', ''), Astro.site);
-const enUrl = new URL(getRelativeLocaleUrl('en', ''), Astro.site);
+const koUrl = new URL(getRelativeLocaleUrl('ko', pathKey), Astro.site);
+const enUrl = new URL(getRelativeLocaleUrl('en', pathKey), Astro.site);
 ---
 <!doctype html>
 <html lang={lang}>

@@ -1,0 +1,25 @@
+---
+// 자격증 전체 페이지(KO) — 14개, 계열 그룹. 미니 헤더(홈 복귀 + 언어 토글).
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LanguageToggle from '../../../components/LanguageToggle.astro';
+import CertList from '../../../components/CertList.astro';
+import { getCertifications } from '../../../data';
+const groups = getCertifications('ko');
+const home = getRelativeLocaleUrl('ko', '');
+---
+<BaseLayout lang="ko" title="자격증 — Teddy · Minjae Kim" description="IP·기술가치평가 중심 14개 보유 자격증." pathKey="certifications">
+  <main class="mx-auto max-w-3xl">
+    <nav class="flex items-center justify-between border-b border-[--color-line] px-6 py-3.5 md:px-8">
+      <a href={home} class="text-[15px] font-medium hover:text-[--color-ink]">
+        Teddy <span class="font-normal text-[--color-muted]">· Minjae Kim</span>
+      </a>
+      <LanguageToggle locale="ko" />
+    </nav>
+    <section class="px-7 py-9 md:px-9 md:py-12">
+      <p class="mb-2 text-[11px] font-medium tracking-[0.2em] text-[--color-muted]">CERTIFICATIONS</p>
+      <h1 class="mb-7 text-[22px] font-medium tracking-tight text-[--color-ink]">보유 자격증 14</h1>
+      <CertList groups={groups} />
+    </section>
+  </main>
+</BaseLayout>

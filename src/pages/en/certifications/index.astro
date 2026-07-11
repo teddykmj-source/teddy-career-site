@@ -1,0 +1,25 @@
+---
+// 자격증 전체 페이지(EN) — KO와 동일 구조, 영문 카피.
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LanguageToggle from '../../../components/LanguageToggle.astro';
+import CertList from '../../../components/CertList.astro';
+import { getCertifications } from '../../../data';
+const groups = getCertifications('en');
+const home = getRelativeLocaleUrl('en', '');
+---
+<BaseLayout lang="en" title="Certifications — Teddy · Minjae Kim" description="14 certifications, centered on IP and technology valuation." pathKey="certifications">
+  <main class="mx-auto max-w-3xl">
+    <nav class="flex items-center justify-between border-b border-[--color-line] px-6 py-3.5 md:px-8">
+      <a href={home} class="text-[15px] font-medium hover:text-[--color-ink]">
+        Teddy <span class="font-normal text-[--color-muted]">· Minjae Kim</span>
+      </a>
+      <LanguageToggle locale="en" />
+    </nav>
+    <section class="px-7 py-9 md:px-9 md:py-12">
+      <p class="mb-2 text-[11px] font-medium tracking-[0.2em] text-[--color-muted]">CERTIFICATIONS</p>
+      <h1 class="mb-7 text-[22px] font-medium tracking-tight text-[--color-ink]">14 Certifications</h1>
+      <CertList groups={groups} />
+    </section>
+  </main>
+</BaseLayout>

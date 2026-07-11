@@ -1,0 +1,24 @@
+---
+// 자격증 그룹 배열을 그룹 제목 + 항목(자격명·기관·연월) 목록으로 렌더. 요약/전체 공유.
+import type { CertGroup } from '../data/types';
+interface Props { groups: CertGroup[]; showGroupTitles?: boolean; }
+const { groups, showGroupTitles = true } = Astro.props;
+---
+{groups.map((g) => (
+  <div class="mb-8 last:mb-0">
+    {showGroupTitles && (
+      <h2 class="mb-4 text-[11px] font-medium tracking-[0.2em] text-[--color-muted]">{g.title}</h2>
+    )}
+    <ul class="flex flex-col divide-y divide-[--color-line]">
+      {g.items.map((c) => (
+        <li class="flex items-baseline justify-between gap-4 py-2.5">
+          <div>
+            <div class={g.tone === 'primary' ? 'text-sm font-medium text-[--color-ink]' : 'text-sm text-[--color-muted]'}>{c.name}</div>
+            <div class="mt-0.5 text-xs text-[--color-muted]">{c.issuer}</div>
+          </div>
+          <div class="shrink-0 text-xs tabular-nums text-[--color-muted]">{c.date}</div>
+        </li>
+      ))}
+    </ul>
+  </div>
+))}
