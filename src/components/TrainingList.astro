@@ -1,0 +1,14 @@
+---
+// 교육 수료 이력을 제목+연도 목록으로 렌더. 자격증 페이지 Training 섹션 전용.
+import type { TrainingItem } from '../data/types';
+interface Props { items: TrainingItem[]; }
+const { items } = Astro.props;
+---
+<ul class="flex flex-col divide-y divide-[--color-line]">
+  {items.map((t) => (
+    <li class="flex items-baseline justify-between gap-4 py-2.5">
+      <div class="text-sm text-[--color-muted]">{t.title}</div>
+      <div class="shrink-0 text-xs tabular-nums text-[--color-muted]">{t.year}</div>
+    </li>
+  ))}
+</ul>

@@ -4,8 +4,10 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import LanguageToggle from '../../../components/LanguageToggle.astro';
 import CertList from '../../../components/CertList.astro';
-import { getCertifications } from '../../../data';
+import TrainingList from '../../../components/TrainingList.astro';
+import { getCertifications, getTraining } from '../../../data';
 const groups = getCertifications('en');
+const training = getTraining('en');
 const home = getRelativeLocaleUrl('en', '');
 ---
 <BaseLayout lang="en" title="Certifications — Teddy · Minjae Kim" description="14 certifications, centered on IP and technology valuation." pathKey="certifications">
@@ -20,6 +22,10 @@ const home = getRelativeLocaleUrl('en', '');
       <p class="mb-2 text-[11px] font-medium tracking-[0.2em] text-[--color-muted]">CERTIFICATIONS</p>
       <h1 class="mb-7 text-[22px] font-medium tracking-tight text-[--color-ink]">14 Certifications</h1>
       <CertList groups={groups} />
+    </section>
+    <section class="border-t border-[--color-line] px-7 py-9 md:px-9 md:py-12">
+      <h2 class="mb-5 text-[11px] font-medium tracking-[0.2em] text-[--color-muted]">TRAINING & DEVELOPMENT</h2>
+      <TrainingList items={training} />
     </section>
   </main>
 </BaseLayout>
