@@ -35,3 +35,4 @@ export interface SiteContent {
 }
 export interface Certification { date: string; name: string; issuer: string; }
 export interface CertGroup { title: string; tone: 'primary' | 'muted'; items: Certification[]; }
+export interface TrainingItem { year: string; title: string; }
