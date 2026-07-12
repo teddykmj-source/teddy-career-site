@@ -43,9 +43,14 @@ export const en: SiteContent = {
         'Created and managed 2,200+ IP rights, handled international IP disputes (won a design-infringement suit in China), operated the employee-invention system, three-time employee-invention excellence certification, KIPO Commissioner Awards in 2019 and 2021.',
     },
     {
-      period: '2015.01 — 2017.01',
-      title: 'Patent firm · Bizworks · Patent practice',
-      description: 'Patent drafting and office-action response, prior-art search, secured 3 business-method patents.',
+      period: '2016.04 — 2017.01',
+      title: 'Bizworks · Planning Team',
+      description: 'Secured 3 business-method patents for anti-counterfeit solutions; competitor patent analysis and design-around.',
+    },
+    {
+      period: '2015.01 — 2016.03',
+      title: 'Noble International Patent & Law Firm · Patent Team',
+      description: 'Patent drafting and office-action response, prior-art and infringement search; handled filings for STX Offshore & Shipbuilding, Byucksan, and others.',
     },
   ],
   certificationsTitle: 'CERTIFICATIONS',
