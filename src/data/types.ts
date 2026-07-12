@@ -31,6 +31,7 @@ export interface SiteContent {
   pressTitle: string;
   press: PressGroup[];
   footerNote: string;
+  glossaryLink: string;
   nav: NavLabels;
 }
 export interface Certification { date: string; name: string; issuer: string; }

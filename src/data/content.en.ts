@@ -112,5 +112,6 @@ export const en: SiteContent = {
     },
   ],
   footerNote: 'Open to collaboration on licensing, SEPs, and IP valuation.',
+  glossaryLink: 'IP Glossary',
   nav: { about: 'About', experience: 'Experience', highlights: 'Highlights', activities: 'Activities', certifications: 'Certifications', press: 'Press' },
 };

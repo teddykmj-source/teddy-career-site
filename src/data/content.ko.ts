@@ -112,5 +112,6 @@ export const ko: SiteContent = {
     },
   ],
   footerNote: '라이선스·표준특허·기술가치평가 협업을 환영합니다.',
+  glossaryLink: 'IP 용어사전',
   nav: { about: '소개', experience: '경력', highlights: '성과', activities: '활동', certifications: '자격', press: '보도' },
 };
