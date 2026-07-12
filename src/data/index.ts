@@ -24,4 +24,4 @@ export function getTraining(locale: 'ko' | 'en'): TrainingItem[] {
   return trainingMap[locale];
 }
 
-export type { SiteContent, CertGroup } from './types';
+export type { SiteContent, CertGroup, TrainingItem } from './types';
