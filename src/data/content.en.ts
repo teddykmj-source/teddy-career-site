@@ -16,7 +16,7 @@ export const en: SiteContent = {
   ],
   aboutTitle: 'ABOUT',
   about:
-    'I have led corporate IP practice across a range of small and mid-sized industries — cosmetics, furniture, and media. My work spans domestic and international patent, trademark, and design portfolios, cross-border IP dispute response, and employee-invention compensation systems. Today at Gaon Group I lead SEP monetization, license audits, and technology valuation.',
+    'I have led corporate IP practice across a range of small and mid-sized industries — cosmetics, furniture, and media. My work spans domestic and international patent, trademark, and design portfolios, cross-border IP dispute response, and employee-invention compensation systems. Today at Kaon Group I lead SEP monetization, license audits, and technology valuation.',
   skills: [
     'License audit & royalties', 'Standard-essential patents', 'Employee invention',
     'IP litigation', 'IP valuation', 'Patent portfolio',
@@ -25,7 +25,7 @@ export const en: SiteContent = {
   experience: [
     {
       period: '2022.09 — Present',
-      title: 'Gaon Group · IP Team, Manager',
+      title: 'KAON GROUP · IP Team, Manager',
       description:
         'SEP creation, essentiality review and monetization; on-site license audit response and internal-audit process build-out; employee-invention compensation litigation; government-funded projects.',
       current: true,
