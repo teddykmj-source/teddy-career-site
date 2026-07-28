@@ -96,7 +96,7 @@ export const ko: SiteContent = {
       title: '선행조사 엔진',
       description:
         '아이디어 단계에서 선행기술을 빠르게 훑도록 특허 검색과 AI 분석을 파이프라인으로 연결했습니다. 원본 데이터는 절대 수정하지 않고 차이 리포트만 내며, 최종 판단은 항상 사람이 합니다.',
-      status: '구현 완료 · 테스트 케이스 86건 · MIT 공개',
+      status: '구현 완료 · 테스트 케이스 86건',
     },
   ],
   activitiesTitle: 'ACTIVITIES & AWARDS',

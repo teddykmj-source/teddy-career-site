@@ -96,7 +96,7 @@ export const en: SiteContent = {
       title: 'Prior-art search engine',
       description:
         'Patent search and AI analysis connected into one pipeline so ideas can be screened against prior art early. Source data is never modified — only a difference report is produced — and the final call always rests with a person.',
-      status: 'Implemented · 86 test cases · MIT licensed',
+      status: 'Implemented · 86 test cases',
     },
   ],
   activitiesTitle: 'ACTIVITIES & AWARDS',
