@@ -73,6 +73,32 @@ export const ko: SiteContent = {
       description: '중국 디자인 침해소송 승소, 특허침해·무효 사건 다수 대응',
     },
   ],
+  automationTitle: 'AUTOMATION',
+  automationLead:
+    '11년간 손으로 해온 IP 실무에서 병목을 찾아 직접 설계하고 구현합니다. 도메인을 아는 사람이 직접 만들 때만 나오는 결과가 있습니다.',
+  automation: [
+    {
+      icon: 'workflow',
+      title: '로열티 정산 자동화',
+      description:
+        '마감마다 반복되던 리포트 정리·포털 제출·발송을 하나의 흐름으로 묶었습니다. 자동화하되 발송은 사람이 승인하는 2단계 게이트로 오발송을 구조적으로 차단하고, 제출 증빙을 자동 보관해 감사 추적성을 확보하도록 설계했습니다.',
+      status: '개발 중 · 테스트 케이스 74건',
+    },
+    {
+      icon: 'rules',
+      title: '직무발명 신고 봇',
+      description:
+        '발명자가 직무발명 해당 여부를 스스로 판단하지 못해 반복되는 문의를, 판단 자동화로 줄이는 것을 목표로 설계했습니다. 법적 판단은 규칙 엔진, 설명만 AI가 맡도록 분리해 환각 여지를 없앴습니다.',
+      status: '개발 중 · 테스트 케이스 34건',
+    },
+    {
+      icon: 'search',
+      title: '선행조사 엔진',
+      description:
+        '아이디어 단계에서 선행기술을 빠르게 훑도록 특허 검색과 AI 분석을 파이프라인으로 연결했습니다. 원본 데이터는 절대 수정하지 않고 차이 리포트만 내며, 최종 판단은 항상 사람이 합니다.',
+      status: '구현 완료 · 테스트 케이스 86건 · MIT 공개',
+    },
+  ],
   activitiesTitle: 'ACTIVITIES & AWARDS',
   activities: [
     '2021 기업지식재산명장 특허청장상 수상 (정부포상)',
@@ -118,5 +144,5 @@ export const ko: SiteContent = {
   ],
   footerNote: '라이선스·표준특허·기술가치평가 협업을 환영합니다.',
   glossaryLink: 'IP 용어사전',
-  nav: { about: '소개', experience: '경력', highlights: '성과', activities: '활동', certifications: '자격', press: '보도' },
+  nav: { about: '소개', experience: '경력', highlights: '성과', automation: '자동화', activities: '활동', certifications: '자격', press: '보도' },
 };

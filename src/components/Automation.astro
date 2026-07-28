@@ -1,0 +1,21 @@
+---
+// IP 실무 자동화 프로젝트를 카드 3열로 보여주는 섹션 컴포넌트
+import SectionLayout from './SectionLayout.astro';
+import Icon from './Icon.astro';
+import type { SiteContent } from '../data/types';
+interface Props { content: SiteContent; }
+const { content } = Astro.props;
+---
+<SectionLayout id="automation" title={content.automationTitle}>
+  <p class="mb-4 text-sm leading-relaxed text-[--color-muted]">{content.automationLead}</p>
+  <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+    {content.automation.map((a) => (
+      <div class="flex flex-col rounded-xl border border-[--color-line] bg-[--color-subtle] p-[18px]">
+        <Icon name={a.icon as 'workflow' | 'rules' | 'search'} class="w-[22px] h-[22px] text-brand" />
+        <div class="mb-1.5 mt-3 text-sm font-medium">{a.title}</div>
+        <p class="text-xs leading-relaxed text-[--color-muted]">{a.description}</p>
+        <div class="mt-auto pt-3 text-[11px] tracking-wide text-brand">{a.status}</div>
+      </div>
+    ))}
+  </div>
+</SectionLayout>

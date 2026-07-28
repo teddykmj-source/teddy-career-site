@@ -73,6 +73,32 @@ export const en: SiteContent = {
       description: 'Won a design-infringement suit in China; handled many infringement and invalidation cases.',
     },
   ],
+  automationTitle: 'AUTOMATION',
+  automationLead:
+    'I find the bottlenecks in the IP work I have done by hand for eleven years, then design and build the systems myself. Some results only come when the person who knows the domain builds the tool.',
+  automation: [
+    {
+      icon: 'workflow',
+      title: 'Royalty reporting automation',
+      description:
+        'Report preparation, portal submission, and delivery — repeated every deadline — pulled into a single flow. Automated, but delivery stays behind a two-step human approval gate so nothing goes out by accident, and submission evidence is archived automatically for audit traceability.',
+      status: 'In development · 74 test cases',
+    },
+    {
+      icon: 'rules',
+      title: 'Employee-invention filing bot',
+      description:
+        'Designed to reduce the recurring questions that arise when inventors cannot judge for themselves whether something qualifies as an employee invention. Legal judgment runs on a rule engine; the LLM only explains, which removes any room for hallucination.',
+      status: 'In development · 34 test cases',
+    },
+    {
+      icon: 'search',
+      title: 'Prior-art search engine',
+      description:
+        'Patent search and AI analysis connected into one pipeline so ideas can be screened against prior art early. Source data is never modified — only a difference report is produced — and the final call always rests with a person.',
+      status: 'Implemented · 86 test cases · MIT licensed',
+    },
+  ],
   activitiesTitle: 'ACTIVITIES & AWARDS',
   activities: [
     '2021 KIPO Commissioner’s Award — Corporate IP Master (government honor)',
@@ -118,5 +144,5 @@ export const en: SiteContent = {
   ],
   footerNote: 'Open to collaboration on licensing, SEPs, and IP valuation.',
   glossaryLink: 'IP Glossary',
-  nav: { about: 'About', experience: 'Experience', highlights: 'Highlights', activities: 'Activities', certifications: 'Certifications', press: 'Press' },
+  nav: { about: 'About', experience: 'Experience', highlights: 'Highlights', automation: 'Automation', activities: 'Activities', certifications: 'Certifications', press: 'Press' },
 };
