@@ -43,12 +43,17 @@ html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage
 img,video,canvas,svg{max-width:100%;max-height:100%;}
 .deck-controls{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000;}
 @media print{
+  @page{size:1920px 1080px;margin:0;}
   html,body{width:1920px;height:auto;overflow:visible;background:#fff;}
   .deck-viewport{position:static;overflow:visible;background:#fff;}
   .deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none;}
   .slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always;}
   .slide:last-child{break-after:auto;page-break-after:auto;}
   .deck-controls{display:none!important;}
+  .bg-glow{display:none!important;}
+  .reveal{opacity:1!important;transform:none!important;filter:none!important;transition:none!important;}
+  .draw{stroke-dashoffset:0!important;animation:none!important;}
+  .ref,.figlabel{opacity:1!important;animation:none!important;}
 }
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.2s!important;}
@@ -150,6 +155,9 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
 .stat .n{font-family:var(--font-display);font-weight:900;font-size:112px;line-height:1;color:var(--text);}
 .stat .n .u{color:var(--cyan);font-size:70px;}
 .stat .l{font-family:var(--font-kr);font-size:24px;color:var(--muted);margin-top:20px;line-height:1.45;}
+.stats.tri{grid-template-columns:repeat(3,1fr);margin:0;padding-top:52px;border-top:1px solid var(--line-soft);}
+.stats.tri .n{font-size:76px;}
+.stats.tri .l{font-size:21px;}
 
 /* ===========================================
    SLIDE 4 — FIELDS (6-up grid)
@@ -161,6 +169,8 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
 .field .idx{font-family:var(--mono);color:var(--cyan);font-size:19px;letter-spacing:.12em;}
 .field h3{font-family:var(--font-kr);font-weight:700;font-size:35px;color:var(--text);margin-top:20px;line-height:1.2;}
 .field p{font-family:var(--font-kr);font-size:20px;color:var(--muted);line-height:1.5;margin-top:14px;}
+.field .foot{margin-top:auto;padding-top:22px;font-family:var(--mono);font-size:17px;color:var(--cyan);letter-spacing:.04em;}
+.field.tall{display:flex;flex-direction:column;min-height:560px;}
 
 /* ===========================================
    SLIDE 5 — SIGNATURE STRENGTHS (2 cards)
@@ -371,10 +381,60 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
     </section>
 
     <!-- ============================================================
+         SLIDE 6 — AUTOMATION (transition)
+         ============================================================ -->
+    <section class="slide">
+      <div class="slide-sec">AUTOMATION / 05</div>
+      <div class="pad">
+        <div class="kick reveal" style="--d:.1s" contenteditable="true">IP 업무 자동화</div>
+        <div class="stmt">
+          <div class="lead-line reveal" style="--d:.25s" contenteditable="true">내가 하던 일을<br><span class="g">내가 직접</span> 자동화합니다</div>
+          <div class="support reveal" style="--d:.55s" contenteditable="true">11년간 손으로 해온 IP 실무에서 병목을 찾아 <b style="color:var(--text)">직접 설계하고 구현</b>합니다. 도메인을 아는 사람이 직접 만들 때만 나오는 결과가 있습니다.</div>
+        </div>
+        <div class="stats tri">
+          <div class="stat reveal" style="--d:.7s"><div class="n"><span class="count" data-target="6">0</span></div><div class="l">직접 설계·구현한 시스템</div></div>
+          <div class="stat reveal" style="--d:.8s"><div class="n"><span class="count" data-target="3">0</span></div><div class="l">자동화 대상 IP 실무 영역</div></div>
+          <div class="stat reveal" style="--d:.9s"><div class="n"><span class="count" data-target="194">0</span></div><div class="l">검증 테스트 케이스<br>(대표 3개 기준)</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 7 — AUTOMATION PROJECTS (3-up)
+         ============================================================ -->
+    <section class="slide">
+      <div class="slide-sec">AUTOMATION / 05</div>
+      <div class="pad">
+        <div class="kick reveal" style="--d:.1s" contenteditable="true">개발 중인 시스템</div>
+        <div class="h-md reveal" style="--d:.2s;margin-top:22px" contenteditable="true">실무에서 찾은 병목을 <span class="g">시스템</span>으로</div>
+        <div class="grid6" style="margin-top:56px">
+          <div class="field tall reveal" style="--d:.35s">
+            <div class="idx">01</div>
+            <h3 contenteditable="true">로열티 정산 자동화</h3>
+            <p contenteditable="true">마감마다 반복되던 로열티 리포트 정리·포털 제출·발송을 하나의 흐름으로 묶었습니다. 자동화하되 <b style="color:var(--text)">발송은 사람이 승인</b>하도록 2단계 게이트를 두어 오발송을 구조적으로 차단하고, 제출 증빙을 자동 보관해 감사 추적성을 확보하도록 설계했습니다.</p>
+            <div class="foot">Phase 4 구현 · 테스트 케이스 74건</div>
+          </div>
+          <div class="field tall reveal" style="--d:.5s">
+            <div class="idx">02</div>
+            <h3 contenteditable="true">직무발명 신고 봇</h3>
+            <p contenteditable="true">발명자가 직무발명 해당 여부를 스스로 판단하지 못해 반복되는 문의를, 판단 자동화로 줄이는 것을 목표로 설계했습니다. <b style="color:var(--text)">법적 판단은 규칙 엔진, 설명만 AI</b>가 맡도록 분리해 환각 여지를 없앴고, 법인별 보상 규정 차이는 데이터로 분리했습니다.</p>
+            <div class="foot">Phase 2 구현 · 테스트 케이스 34건</div>
+          </div>
+          <div class="field tall reveal" style="--d:.65s">
+            <div class="idx">03</div>
+            <h3 contenteditable="true">선행조사 엔진</h3>
+            <p contenteditable="true">아이디어 단계에서 선행기술을 빠르게 훑도록 특허 검색과 AI 분석을 파이프라인으로 연결했습니다. <b style="color:var(--text)">원본 데이터는 절대 수정하지 않고</b> 차이 리포트만 내며, 최종 판단은 항상 사람이 합니다.</p>
+            <div class="foot">구현 완료 · 테스트 케이스 86건</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          SLIDE 6 — CAREER TIMELINE
          ============================================================ -->
     <section class="slide">
-      <div class="slide-sec">CAREER / 05</div>
+      <div class="slide-sec">CAREER / 06</div>
       <div class="pad">
         <div class="kick reveal" style="--d:.1s" contenteditable="true">경력</div>
         <div class="h-md reveal" style="--d:.2s;margin-top:22px" contenteditable="true">특허사무소에서 <span class="g">기업 IP 전문가</span>까지</div>
@@ -407,7 +467,7 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
          SLIDE 7 — RESULTS
          ============================================================ -->
     <section class="slide">
-      <div class="slide-sec">RESULTS / 06</div>
+      <div class="slide-sec">RESULTS / 07</div>
       <div class="pad">
         <div class="kick reveal" style="--d:.1s" contenteditable="true">대표 성과</div>
         <div class="h-md reveal" style="--d:.2s;margin-top:22px" contenteditable="true">숫자로 남긴 <span class="a">결과</span></div>
@@ -436,11 +496,12 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
          SLIDE 8 — AWARDS
          ============================================================ -->
     <section class="slide">
-      <div class="slide-sec">RECOGNITION / 07</div>
+      <div class="slide-sec">RECOGNITION / 08</div>
       <div class="pad">
         <div class="kick reveal" style="--d:.1s" contenteditable="true">수상 · 인정</div>
         <div class="h-md reveal" style="--d:.2s;margin-top:22px" contenteditable="true">업계가 인정한 <span class="g">전문성</span></div>
         <div class="awards">
+          <div class="aw reveal" style="--d:.22s"><div class="yr">2019</div><div class="nm" contenteditable="true">지식재산경영기업 특허청장상</div><div class="by">특허청</div></div>
           <div class="aw reveal" style="--d:.32s"><div class="yr">2021</div><div class="nm" contenteditable="true">기업지식재산명장 특허청장상 — 기업 IP 우수</div><div class="by">특허청</div></div>
           <div class="aw reveal" style="--d:.42s"><div class="yr">2022</div><div class="nm" contenteditable="true">ICT 특허경영대상 장관상</div><div class="by">과학기술정보통신부</div></div>
           <div class="aw reveal" style="--d:.52s"><div class="yr">2026</div><div class="nm" contenteditable="true">표준특허창출지원사업 우수기업 지식재산처장상</div><div class="by">지식재산처</div></div>
@@ -453,7 +514,7 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
          SLIDE 9 — PRESS
          ============================================================ -->
     <section class="slide">
-      <div class="slide-sec">IN THE PRESS / 08</div>
+      <div class="slide-sec">IN THE PRESS / 09</div>
       <div class="pad">
         <div class="kick reveal" style="--d:.1s" contenteditable="true">언론 보도</div>
         <div class="press-wrap">
@@ -475,7 +536,7 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
          SLIDE 10 — WHO I WORK WITH
          ============================================================ -->
     <section class="slide collab">
-      <div class="slide-sec">COLLABORATION / 09</div>
+      <div class="slide-sec">COLLABORATION / 10</div>
       <div class="pad">
         <div class="kick reveal" style="--d:.1s" contenteditable="true">함께 일하면</div>
         <div class="h-md reveal" style="--d:.2s;margin-top:22px" contenteditable="true">다양한 산업의 <span class="a">중소·중견기업</span>과 함께합니다</div>
@@ -492,7 +553,7 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
          SLIDE 11 — CONTACT / CLOSING
          ============================================================ -->
     <section class="slide">
-      <div class="slide-sec">GET IN TOUCH / 10</div>
+      <div class="slide-sec">GET IN TOUCH / 11</div>
       <div class="close-content">
         <div class="kick reveal" style="--d:.1s" contenteditable="true">Let's work together</div>
         <h1 class="h-lg">
@@ -535,6 +596,10 @@ class SlidePresentation{
   constructor(){
     this.slides=[...document.querySelectorAll('.slide')];
     this.current=0;
+    /* 인쇄/내보내기 시 활성화되지 않은 슬라이드의 카운터가 0으로 남지 않도록 최종값을 미리 채운다 */
+    document.querySelectorAll('.count').forEach(el=>{
+      el.textContent=(+el.dataset.target).toLocaleString('en-US');
+    });
     this.stage=document.getElementById('deckStage');
     this.pageNum=document.getElementById('pageNum');
     this.progressBar=document.getElementById('progressBar');
@@ -626,7 +691,12 @@ const editor={
   load(){
     const raw=localStorage.getItem('teddy-ip-deck');if(!raw)return;
     try{const data=JSON.parse(raw);
-      document.querySelectorAll('[contenteditable]').forEach((el,i)=>{if(data[i]!=null)el.innerHTML=data[i];});
+      const els=document.querySelectorAll('[contenteditable]');
+      if(Object.keys(data).length!==els.length){
+        console.warn('teddy-ip-deck: 저장된 항목 수('+Object.keys(data).length+')와 현재 contenteditable 요소 수('+els.length+')가 달라 복원을 건너뜁니다.');
+        return;
+      }
+      els.forEach((el,i)=>{if(data[i]!=null)el.innerHTML=data[i];});
     }catch(e){}
   }
 };
