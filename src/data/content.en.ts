@@ -82,7 +82,7 @@ export const en: SiteContent = {
       title: 'Royalty reporting automation',
       description:
         'Report preparation, portal submission, and delivery — repeated every deadline — pulled into a single flow. Automated, but delivery stays behind a two-step human approval gate so nothing goes out by accident, and submission evidence is archived automatically for audit traceability.',
-      status: 'In development · 74 test cases',
+      status: 'In development · 200 test cases',
     },
     {
       icon: 'rules',
@@ -96,7 +96,7 @@ export const en: SiteContent = {
       title: 'Prior-art search engine',
       description:
         'Patent search and AI analysis connected into one pipeline so ideas can be screened against prior art early. Source data is never modified — only a difference report is produced — and the final call always rests with a person.',
-      status: 'Implemented · 86 test cases',
+      status: 'Implemented · 279 test cases',
     },
   ],
   activitiesTitle: 'ACTIVITIES & AWARDS',

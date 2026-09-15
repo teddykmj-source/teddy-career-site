@@ -82,7 +82,7 @@ export const ko: SiteContent = {
       title: '로열티 정산 자동화',
       description:
         '마감마다 반복되던 리포트 정리·포털 제출·발송을 하나의 흐름으로 묶었습니다. 자동화하되 발송은 사람이 승인하는 2단계 게이트로 오발송을 구조적으로 차단하고, 제출 증빙을 자동 보관해 감사 추적성을 확보하도록 설계했습니다.',
-      status: '개발 중 · 테스트 케이스 74건',
+      status: '개발 중 · 테스트 케이스 200건',
     },
     {
       icon: 'rules',
@@ -96,7 +96,7 @@ export const ko: SiteContent = {
       title: '선행조사 엔진',
       description:
         '아이디어 단계에서 선행기술을 빠르게 훑도록 특허 검색과 AI 분석을 파이프라인으로 연결했습니다. 원본 데이터는 절대 수정하지 않고 차이 리포트만 내며, 최종 판단은 항상 사람이 합니다.',
-      status: '구현 완료 · 테스트 케이스 86건',
+      status: '구현 완료 · 테스트 케이스 279건',
     },
   ],
   activitiesTitle: 'ACTIVITIES & AWARDS',
