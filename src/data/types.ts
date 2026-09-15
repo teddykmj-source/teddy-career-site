@@ -36,7 +36,29 @@ export interface SiteContent {
   press: PressGroup[];
   footerNote: string;
   glossaryLink: string;
+  heroSpecs: HeroSpec[];
+  headings: SectionHeadings;
+  practiceTitle: string;
+  principlesTitle: string;
+  principles: Principle[];
+  contactTitle: string;
+  contactLead: string;
+  directTitle: string;
+  replyNote: string;
+  form: FormLabels;
   nav: NavLabels;
+}
+export interface HeroSpec { label: string; value: string; }
+export interface Principle { key: string; title: string; description: string; }
+export interface FormLabels {
+  name: string; email: string; message: string; placeholder: string;
+  submit: string; sending: string; okTitle: string; okBody: string;
+  errName: string; errEmail: string; errMessage: string; errSend: string; errNetwork: string;
+}
+/** 섹션 배지(기존 *Title)와 짝을 이루는 h2 문구 */
+export interface SectionHeadings {
+  practice: string; experience: string; automation: string; principles: string;
+  awards: string; certifications: string; contact: string;
 }
 export interface Certification { date: string; name: string; issuer: string; }
 export interface CertGroup { title: string; tone: 'primary' | 'muted'; items: Certification[]; }

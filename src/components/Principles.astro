@@ -1,0 +1,23 @@
+---
+// 설계 원칙 3가지. 자동화 섹션 바로 뒤에 온다.
+import type { SiteContent } from '../data';
+interface Props { content: SiteContent; }
+const { content } = Astro.props;
+---
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="pill">{content.principlesTitle}</span>
+      <h2 class="h2">{content.headings.principles}</h2>
+    </div>
+    <div class="steps">
+      {content.principles.map((p) => (
+        <div class="rv"><div class="shell"><div class="core core-pad">
+          <div class="step-k">{p.key}</div>
+          <h3 class="h3">{p.title}</h3>
+          <p class="body" style="margin-top:14px">{p.description}</p>
+        </div></div></div>
+      ))}
+    </div>
+  </div>
+</section>

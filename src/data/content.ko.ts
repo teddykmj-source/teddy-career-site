@@ -5,7 +5,7 @@ export const ko: SiteContent = {
   eyebrow: '라이선스 · 표준특허 · 분쟁대응 · 기술가치평가',
   headline: ['지식재산을 수익과 전략으로', '연결하는 IP 전문가'],
   tagline:
-    '특허 창출·관리부터 국제 분쟁 대응, 직무발명 제도, 그리고 표준특허 수익화와 라이선스 감사까지 — 지식재산이 실제 사업 가치로 이어지는 전 과정을 다룹니다.',
+    '특허 창출·관리부터 국제 분쟁 대응, 직무발명 제도, 그리고 표준특허 수익화와 라이선스 감사까지. 지식재산이 실제 사업 가치로 이어지는 전 과정을 다룹니다.',
   ctaContact: '연락하기',
   ctaDeck: 'IP 소개 자료',
   stats: [
@@ -144,5 +144,54 @@ export const ko: SiteContent = {
   ],
   footerNote: '라이선스·표준특허·기술가치평가 협업을 환영합니다.',
   glossaryLink: 'IP 용어사전',
+  heroSpecs: [
+    { label: '경력', value: '11년+' },
+    { label: '전문', value: 'SEP · 라이선스 감사' },
+    { label: '거점', value: 'Seoul, KR' },
+  ],
+  headings: {
+    practice: 'End-to-End IP Practice',
+    experience: 'Firm Side to Client Side',
+    automation: 'Automating My Own Workflow',
+    principles: 'Principles Before Code',
+    awards: 'Awards and Press',
+    certifications: 'Credentials on File',
+    contact: 'Get in Touch',
+  },
+  practiceTitle: 'PRACTICE AREAS',
+  principlesTitle: 'APPROACH',
+  principles: [
+    {
+      key: 'Gate',
+      title: '사람이 승인한 것만 나갑니다',
+      description: '자동화의 마지막 단계는 사람입니다. 발송과 제출은 2단계 게이트를 거치게 해 자동 실행 사고를 구조로 막습니다.',
+    },
+    {
+      key: 'Split',
+      title: '판단과 설명을 분리합니다',
+      description: '틀리면 안 되는 판단은 규칙 엔진이, 설명과 문답은 AI가 맡습니다. 환각이 들어올 자리를 아예 없앱니다.',
+    },
+    {
+      key: 'Boundary',
+      title: '원본은 건드리지 않습니다',
+      description: '사내 데이터는 읽기만 하고 차이 리포트만 냅니다. 회사 데이터를 코드에 들이지 않는 경계를 먼저 설계합니다.',
+    },
+  ],
+  contactTitle: 'CONTACT',
+  contactLead: '라이선스 감사, 표준특허 수익화, 분쟁 대응 모두 좋습니다. 어떤 판단이 필요한지만 적어 주시면 됩니다.',
+  directTitle: '직접 연락',
+  replyNote: '보통 영업일 기준 하루 안에 답장합니다.',
+  form: {
+    name: '이름', email: '이메일', message: '필요한 내용',
+    placeholder: '예: 라이선스 계약 3건의 로열티 정합성 검증이 필요합니다.',
+    submit: '보내기', sending: '보내는 중',
+    okTitle: '잘 받았습니다',
+    okBody: '내용 확인하고 회신드리겠습니다. 급하시면 위 메일로 바로 연락 주세요.',
+    errName: '이름을 입력해 주세요.',
+    errEmail: '메일 주소 형식을 확인해 주세요.',
+    errMessage: '어떤 내용인지 열 자 이상 적어 주세요.',
+    errSend: '전송하지 못했습니다. 잠시 후 다시 시도하거나 위 메일로 직접 보내 주세요.',
+    errNetwork: '네트워크 오류로 전송하지 못했습니다. 위 메일로 보내 주세요.',
+  },
   nav: { about: '소개', experience: '경력', highlights: '성과', automation: '자동화', activities: '활동', certifications: '자격', press: '보도' },
 };

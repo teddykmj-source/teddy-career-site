@@ -1,4 +1,33 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
-return Astro.redirect(getRelativeLocaleUrl('ko', ''));
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import StatStrip from '../components/StatStrip.astro';
+import Highlights from '../components/Highlights.astro';
+import Automation from '../components/Automation.astro';
+import Principles from '../components/Principles.astro';
+import Timeline from '../components/Timeline.astro';
+import Certifications from '../components/Certifications.astro';
+import Activities from '../components/Activities.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import PageScript from '../components/PageScript.astro';
+import { getContent } from '../data';
+const content = getContent('ko');
 ---
+<BaseLayout lang="ko" title="김민재 · Teddy — IP 전문가" description={content.tagline}>
+  <Nav locale="ko" content={content} />
+  <main id="top">
+    <Hero content={content} />
+    <StatStrip content={content} />
+    <Highlights content={content} />
+    <Automation content={content} />
+    <Principles content={content} />
+    <Timeline content={content} />
+    <Certifications locale="ko" content={content} />
+    <Activities content={content} />
+    <Contact content={content} />
+  </main>
+  <Footer content={content} />
+  <PageScript />
+</BaseLayout>

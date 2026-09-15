@@ -1,0 +1,57 @@
+---
+// 연락: Formspree AJAX. 오류·전송중·완료 세 상태를 모두 보여준다.
+import type { SiteContent } from '../data';
+import { contact } from '../data/contact';
+interface Props { content: SiteContent; }
+const { content } = Astro.props;
+const f = content.form;
+---
+<section class="sec" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="pill">{content.contactTitle}</span>
+      <h2 class="h2">{content.headings.contact}</h2>
+      <p class="body">{content.contactLead}</p>
+    </div>
+    <div class="contact">
+      <div class="rv">
+        <p class="tm-kr" style="margin-bottom:12px">{content.directTitle}</p>
+        <div class="direct" style="margin-top:0">
+          <a href={`mailto:${contact.email}`}><span>{contact.email}</span><span aria-hidden="true">↗</span></a>
+          <a href={contact.linkedin} target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="body" style="margin-top:22px;font-size:.9rem">{content.replyNote}</p>
+      </div>
+      <div class="rv"><div class="shell"><div class="core core-pad">
+        <form id="cform" action="https://formspree.io/f/meaojedg" method="POST" novalidate
+              data-err-name={f.errName} data-err-email={f.errEmail} data-err-message={f.errMessage}
+              data-err-send={f.errSend} data-err-network={f.errNetwork}
+              data-submit={f.submit} data-sending={f.sending}>
+          <input type="hidden" name="_subject" value="포트폴리오 문의" />
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
+          <div class="field">
+            <label for="f-name">{f.name}</label>
+            <div class="in"><input id="f-name" name="name" type="text" autocomplete="name" aria-describedby="e-name" /></div>
+            <span class="err" id="e-name" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="f-mail">{f.email}</label>
+            <div class="in"><input id="f-mail" name="email" type="email" autocomplete="email" aria-describedby="e-mail" /></div>
+            <span class="err" id="e-mail" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="f-msg">{f.message}</label>
+            <div class="in"><textarea id="f-msg" name="message" placeholder={f.placeholder} aria-describedby="e-msg"></textarea></div>
+            <span class="err" id="e-msg" role="alert"></span>
+          </div>
+          <button class="btn btn-dark" type="submit" id="fbtn">{f.submit} <span class="ico" aria-hidden="true">↗</span></button>
+          <p class="form-err" id="ferr" role="alert"></p>
+        </form>
+        <div class="ok" id="fok" role="status">
+          <h3 class="h3">{f.okTitle}</h3>
+          <p class="body" style="margin-top:12px">{f.okBody}</p>
+        </div>
+      </div></div></div>
+    </div>
+  </div>
+</section>

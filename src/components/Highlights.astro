@@ -1,18 +1,36 @@
 ---
-import SectionLayout from './SectionLayout.astro';
-import Icon from './Icon.astro';
-import type { SiteContent } from '../data/types';
+// 전문 영역: 대표 3건(highlights, 사진 포함) + 보조 6건(skills 칩)
+import type { SiteContent } from '../data';
 interface Props { content: SiteContent; }
 const { content } = Astro.props;
+const photos = ['/teddy-sep.jpg', '/teddy-audit.jpg', '/teddy-priorart.jpg'];
 ---
-<SectionLayout id="highlights" title={content.highlightsTitle}>
-  <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-    {content.highlights.map((h) => (
-      <div class="rounded-xl border border-[--color-line] bg-[--color-subtle] p-[18px]">
-        <Icon name={h.icon as 'award' | 'shield' | 'gavel'} class="w-[22px] h-[22px] text-brand" />
-        <div class="mb-1.5 mt-3 text-sm font-medium">{h.title}</div>
-        <p class="text-xs leading-relaxed text-[--color-muted]">{h.description}</p>
-      </div>
-    ))}
+<section class="sec" id="cap" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="pill">{content.practiceTitle}</span>
+      <h2 class="h2">{content.headings.practice}</h2>
+      <p class="body">{content.about}</p>
+    </div>
+
+    <div class="cards cards-3">
+      {content.highlights.map((h, i) => (
+        <div class="rv"><div class="shell"><div class="core core-pad"><article class="card-in">
+          <figure class="card-fig">
+            <img src={photos[i % photos.length]} alt={h.title} loading="lazy" width="1400" height="700" />
+          </figure>
+          <h3 class="h3">{h.title}</h3>
+          <p class="body">{h.description}</p>
+        </article></div></div></div>
+      ))}
+    </div>
+
+    <div class="areas areas-3">
+      {content.skills.map((s) => (
+        <div class="rv"><div class="shell"><div class="core core-pad">
+          <h3 class="h3 h3-sm">{s}</h3>
+        </div></div></div>
+      ))}
+    </div>
   </div>
-</SectionLayout>
+</section>

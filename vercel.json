@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/ko", "destination": "/", "permanent": true },
+    { "source": "/ko/", "destination": "/", "permanent": true },
+    { "source": "/ko/certifications", "destination": "/certifications/", "permanent": true },
+    { "source": "/ko/certifications/", "destination": "/certifications/", "permanent": true },
+    { "source": "/portfolio", "destination": "/", "permanent": true },
+    { "source": "/portfolio/", "destination": "/", "permanent": true }
+  ]
+}

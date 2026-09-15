@@ -1,21 +1,32 @@
 ---
-// IP 실무 자동화 프로젝트를 카드 3열로 보여주는 섹션 컴포넌트
-import SectionLayout from './SectionLayout.astro';
-import Icon from './Icon.astro';
-import type { SiteContent } from '../data/types';
+// 만들고 있는 시스템: Z축 캐스케이드로 겹쳐 쌓는다.
+import type { SiteContent } from '../data';
 interface Props { content: SiteContent; }
 const { content } = Astro.props;
+const photos = ['/teddy-royalty.jpg', '/teddy-invention.jpg', '/teddy-priorart.jpg'];
 ---
-<SectionLayout id="automation" title={content.automationTitle}>
-  <p class="mb-4 text-sm leading-relaxed text-[--color-muted]">{content.automationLead}</p>
-  <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-    {content.automation.map((a) => (
-      <div class="flex flex-col rounded-xl border border-[--color-line] bg-[--color-subtle] p-[18px]">
-        <Icon name={a.icon as 'workflow' | 'rules' | 'search'} class="w-[22px] h-[22px] text-brand" />
-        <div class="mb-1.5 mt-3 text-sm font-medium">{a.title}</div>
-        <p class="text-xs leading-relaxed text-[--color-muted]">{a.description}</p>
-        <div class="mt-auto pt-3 text-[11px] tracking-wide text-brand">{a.status}</div>
-      </div>
-    ))}
+<section class="sec" id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="pill">{content.automationTitle}</span>
+      <h2 class="h2">{content.headings.automation}</h2>
+      <p class="body">{content.automationLead}</p>
+    </div>
+    <div class="cascade">
+      {content.automation.map((a, i) => (
+        <div class={`casc-item casc-${i + 1} rv`}>
+          <div class="shell"><div class="core core-pad"><div class="work">
+            <figure class="work-fig">
+              <img src={photos[i % photos.length]} alt={a.title} loading="lazy" width="1400" height="875" />
+            </figure>
+            <div>
+              <p class="work-meta">{a.status}</p>
+              <h3 class="h3" style="margin-top:12px">{a.title}</h3>
+              <p class="body" style="margin-top:14px">{a.description}</p>
+            </div>
+          </div></div></div>
+        </div>
+      ))}
+    </div>
   </div>
-</SectionLayout>
+</section>

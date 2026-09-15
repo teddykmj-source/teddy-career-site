@@ -1,17 +1,17 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Nav from '../../../components/Nav.astro';
-import Footer from '../../../components/Footer.astro';
-import PageScript from '../../../components/PageScript.astro';
-import { getContent, getCertifications, getTraining } from '../../../data';
-const locale = 'en' as 'ko' | 'en';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import PageScript from '../../components/PageScript.astro';
+import { getContent, getCertifications, getTraining } from '../../data';
+const locale = 'ko' as 'ko' | 'en';
 const content = getContent(locale);
 const groups = getCertifications(locale);
 const training = getTraining(locale);
 const trainingTitle = locale === 'ko' ? '교육 수료' : 'Training';
 const backLabel = locale === 'ko' ? '돌아가기' : 'Back';
 ---
-<BaseLayout lang="en" title="Certifications · Teddy" description={content.tagline} pathKey="certifications/">
+<BaseLayout lang="ko" title="자격증 · 김민재" description={content.tagline} pathKey="certifications/">
   <Nav locale={locale} content={content} />
   <main id="top">
     <section class="sec sec-top">

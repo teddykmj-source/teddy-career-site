@@ -1,22 +1,33 @@
 ---
-import LanguageToggle from './LanguageToggle.astro';
-import type { SiteContent } from '../data/types';
-import type { Locale } from '../i18n/config';
-interface Props { locale: Locale; content: SiteContent; }
+// 떠 있는 유리 알약 내비. 상단에 붙이지 않는다.
+import type { SiteContent } from '../data';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+interface Props { locale: 'ko' | 'en'; content: SiteContent; }
 const { locale, content } = Astro.props;
+const other = locale === 'ko' ? 'en' : 'ko';
+const links = [
+  { href: '#cap', label: content.nav.highlights },
+  { href: '#work', label: content.nav.automation },
+  { href: '#cv', label: content.nav.experience },
+];
 ---
-<nav class="flex items-center justify-between border-b border-[--color-line] px-6 py-3.5 md:px-8">
-  <span class="text-[15px] font-medium">
-    Teddy <span class="font-normal text-[--color-muted]">· Minjae Kim</span>
-  </span>
-  <div class="flex items-center gap-4 md:gap-5">
-    <a href="#about" class="hidden text-[13px] text-[--color-muted] hover:text-[--color-ink] sm:inline">{content.nav.about}</a>
-    <a href="#experience" class="hidden text-[13px] text-[--color-muted] hover:text-[--color-ink] sm:inline">{content.nav.experience}</a>
-    <a href="#highlights" class="hidden text-[13px] text-[--color-muted] hover:text-[--color-ink] sm:inline">{content.nav.highlights}</a>
-    <a href="#automation" class="hidden text-[13px] text-[--color-muted] hover:text-[--color-ink] sm:inline">{content.nav.automation}</a>
-    <a href="#activities" class="hidden text-[13px] text-[--color-muted] hover:text-[--color-ink] sm:inline">{content.nav.activities}</a>
-    <a href="#certifications" class="hidden text-[13px] text-[--color-muted] hover:text-[--color-ink] sm:inline">{content.nav.certifications}</a>
-    <a href="#press" class="hidden text-[13px] text-[--color-muted] hover:text-[--color-ink] sm:inline">{content.nav.press}</a>
-    <LanguageToggle locale={locale} />
+<nav class="nav">
+  <span class="nav-brand">{content.fullName.split('·')[0].trim()}</span>
+  <div class="nav-links">
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
   </div>
+  <a class="nav-lang" href={getRelativeLocaleUrl(other, '')} hreflang={other} aria-label={other === 'en' ? 'English' : '한국어'}>
+    {other === 'en' ? 'EN' : 'KO'}
+  </a>
+  <button class="tog" id="tog" type="button" aria-pressed="false" aria-label="">
+    <span class="tog-face" aria-hidden="true"></span>
+  </button>
+  <a class="btn btn-dark" href="#contact">{content.ctaContact} <span class="ico" aria-hidden="true">↗</span></a>
+  <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="">
+    <span></span><span></span>
+  </button>
 </nav>
+<div class="menu" id="menu">
+  {links.map((l) => <a href={l.href}>{l.label}</a>)}
+  <a href="#contact">{content.ctaContact}</a>
+</div>

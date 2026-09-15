@@ -1,16 +1,36 @@
 ---
-import SectionLayout from './SectionLayout.astro';
-import type { SiteContent } from '../data/types';
+// 수상·활동 + 언론 보도. 두 장짜리 카드로 나란히 둔다.
+import type { SiteContent } from '../data';
 interface Props { content: SiteContent; }
 const { content } = Astro.props;
 ---
-<SectionLayout id="activities" title={content.activitiesTitle}>
-  <ul class="flex flex-col gap-2.5">
-    {content.activities.map((a) => (
-      <li class="flex gap-2.5 text-sm leading-relaxed text-[--color-muted]">
-        <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand"></span>
-        <span>{a}</span>
-      </li>
-    ))}
-  </ul>
-</SectionLayout>
+<section class="sec" id="log" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="pill">{content.activitiesTitle}</span>
+      <h2 class="h2">{content.headings.awards}</h2>
+    </div>
+    <div class="logs">
+      <div class="rv"><div class="shell"><div class="core core-pad">
+        <div class="log-k">{content.activitiesTitle}</div>
+        {content.activities.map((a) => (
+          <div class="log-r log-r--plain"><p>{a}</p></div>
+        ))}
+      </div></div></div>
+
+      <div class="rv"><div class="shell"><div class="core core-pad">
+        <div class="log-k">{content.pressTitle}</div>
+        {content.press.map((g) => (
+          <div class="press-group">
+            <p class="press-title">{g.title}</p>
+            <div class="press">
+              {g.links.map((l) => (
+                <a class="chip chip-link" href={l.url} target="_blank" rel="noopener noreferrer">{l.outlet} <span aria-hidden="true">↗</span></a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div></div></div>
+    </div>
+  </div>
+</section>

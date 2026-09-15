@@ -1,37 +1,16 @@
 ---
-import type { Stat } from '../data/types';
-interface Props { stats: Stat[]; }
-const { stats } = Astro.props;
+// 지표 4개. 자격증 항목만 별도 페이지로 연결된다.
+import type { SiteContent } from '../data';
+interface Props { content: SiteContent; }
+const { content } = Astro.props;
 ---
-<div class="mx-auto grid max-w-lg grid-cols-2 gap-3 sm:grid-cols-4">
-  {stats.map((s) => {
-    const Tag = s.href ? 'a' : 'div';
-    return (
-      <Tag href={s.href} class="stat-tile block px-2 py-3.5 text-center">
-        <div class="text-[22px] font-medium text-white">{s.value}</div>
-        <div class="mt-0.5 text-xs text-[#BFD6F0]">{s.label}</div>
-      </Tag>
-    );
-  })}
-</div>
-
-<style>
-  .stat-tile {
-    border-radius: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    background: rgba(255, 255, 255, 0.1);
-    -webkit-backdrop-filter: blur(12px) saturate(150%);
-    backdrop-filter: blur(12px) saturate(150%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
-    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.35s ease, box-shadow 0.35s ease;
-  }
-  .stat-tile:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.16);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 8px 22px rgba(8, 20, 40, 0.3);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .stat-tile { transition: none; }
-    .stat-tile:hover { transform: none; }
-  }
-</style>
+<section class="wrap" style="padding-bottom:var(--sec)">
+  <div class="stats stats-4">
+    {content.stats.map((s) => (
+      <div class="rv"><div class="shell"><div class="core core-pad">
+        <div class="num stat-n">{s.value}</div>
+        <p class="stat-l">{s.href ? <a class="stat-link" href={s.href}>{s.label} <span aria-hidden="true">↗</span></a> : s.label}</p>
+      </div></div></div>
+    ))}
+  </div>
+</section>
