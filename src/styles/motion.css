@@ -103,6 +103,16 @@
 @keyframes pi-draw{to{stroke-dashoffset:0}}
 @keyframes pi-show{to{opacity:1}}
 
+/* ── 실: 왼쪽 여백의 세로선이 페이지 스크롤 진행률만큼 자란다. 메인 페이지만, 900px 이상 ── */
+.thread{position:fixed;top:0;bottom:0;width:1px;z-index:1;pointer-events:none;background:var(--hair);
+  left:calc(max(var(--gut), (100vw - 1240px) / 2 + var(--gut)) - 22px)}
+.thread::after{content:"";position:absolute;inset:0;background:var(--accent);transform-origin:top;transform:scaleY(0)}
+@media (max-width:899px){.thread{display:none}}
+@supports (animation-timeline: scroll()) {
+  .thread::after{animation:thread-grow linear both;animation-timeline:scroll(root)}
+  @keyframes thread-grow{to{transform:scaleY(1)}}
+}
+
 /* ── 경력: 왼쪽 진행선이 스크롤에 따라 채워지고 도달한 행의 점이 켜진다. 데스크톱만 ── */
 @media (min-width:760px){
   .cv-list{position:relative;padding-left:26px}
@@ -125,6 +135,6 @@
 /* ── reduced-motion 가드. 반드시 파일 끝. 신규 애니메이션은 즉시 최종 상태로 간다 ── */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  .nav,.cv-list::after,.cv-row::before{animation:none!important}
+  .nav,.cv-list::after,.cv-row::before,.thread::after{animation:none!important}
   ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
 }

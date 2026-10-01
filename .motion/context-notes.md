@@ -29,6 +29,11 @@
 - **`tests/motion.test.ts` 의 `@supports` 검사는 주석을 벗긴 뒤 중괄호 깊이를 세는 스캐너다.** 처음 regex 는 중첩 블록에서 거짓 통과했다. 가드에 `animation:none!important` 가 있는지도 단언한다(scroll-driven 은 duration 을 무시하므로 이 줄이 가드의 핵심이다).
 - **보류한 것.** 카드 hover 를 `@media (hover:hover)` 로 묶기(기존 `.casc-item` 패턴과 동일하게 둠), 카운트업 threshold 를 `.rv` 와 맞추기, 2행 이후 점 위치를 `.cv-when` 기준으로 옮기기, 틸트의 매 이벤트 `getBoundingClientRect`. 모두 현재 동작에 문제가 없어 손대지 않았다.
 
+## 2026-10-01 추가: 실(thread)
+
+- **B 목업에서 실 하나만 가져왔다.** 사용자 요청. `src/components/Thread.astro` 의 `div.thread` 를 `/`·`/en/` 에만 넣고, CSS 는 `motion.css` 의 경력 블록 앞에 있다. `scroll(root)` 로 `::after` 를 `scaleY` 하며, 미지원 브라우저와 reduced-motion 에서는 `--hair` 트랙만 남는다.
+- **위치는 콘텐츠 왼쪽 가장자리에서 22px 바깥.** `left:calc(max(var(--gut), (100vw - 1240px) / 2 + var(--gut)) - 22px)` 로 `.wrap` 의 패딩 가장자리를 따라간다. 899px 이하는 `display:none`. 자격증 페이지는 짧아서 넣지 않았다.
+
 ## 기준치
 
 - Lighthouse 모바일 성능 (작업 전) 0.86. 사후 0.87 (LCP 3.8s, CLS 0.017, TBT 70ms). 측정은 `npx lighthouse` 헤드리스, `npm run preview` 대상.
