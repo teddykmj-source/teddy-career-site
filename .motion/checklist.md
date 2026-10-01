@@ -26,6 +26,15 @@
 - [x] 13b. 푸시, Vercel 프리뷰 확인, main 병합(ff, 47aa64c), 라이브 검증
 - [x] 14. B 목업의 실(thread): 왼쪽 여백 세로선이 스크롤 진행률만큼 자람. 메인 페이지만, 900px 이상 (2026-10-01)
 
+## 디자인 감사 후속 (2026-10-02)
+
+- [x] 15. optimize. 사진 6장을 `src/assets` 로 옮겨 Astro Picture 로 AVIF·WebP 반응형 변환, Geist 비동기 로드
+- [x] 16. typeset. h1 3rem·h2 2.75rem·h3 1.22rem·리드 1.12rem·지표 3.5rem 로 상한 축소, 소형 텍스트 12px 하한
+- [x] 17. adapt. hover 규칙 18개를 `@media (hover:hover)` 로, 작은 인라인 링크 padding-block 4px
+- [x] 18. harden. 장식 사진 alt 비움, 카운트업 숫자 aria-hidden + .sr 원문
+- [x] 19. polish. 검출기·테스트·빌드·1440/450px·라이트/다크 확인, Lighthouse 0.87 → 0.96
+- [ ] 20. main 병합·배포 (사용자 확인 후)
+
 ## 되돌리는 법
 
 - 브랜치 전체. `git switch main` 하고 `feat/motion` 을 버린다.

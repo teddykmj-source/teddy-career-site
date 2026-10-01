@@ -34,6 +34,16 @@
 - **B 목업에서 실 하나만 가져왔다.** 사용자 요청. `src/components/Thread.astro` 의 `div.thread` 를 `/`·`/en/` 에만 넣고, CSS 는 `motion.css` 의 경력 블록 앞에 있다. `scroll(root)` 로 `::after` 를 `scaleY` 하며, 미지원 브라우저와 reduced-motion 에서는 `--hair` 트랙만 남는다.
 - **위치는 콘텐츠 왼쪽 가장자리에서 22px 바깥.** `left:calc(max(var(--gut), (100vw - 1240px) / 2 + var(--gut)) - 22px)` 로 `.wrap` 의 패딩 가장자리를 따라간다. 899px 이하는 `display:none`. 자격증 페이지는 짧아서 넣지 않았다.
 
+## 2026-10-02 디자인 감사 후속
+
+- **감사 점수 17/20.** 약한 축은 성능(LCP 3.8s)과 소형 텍스트·터치 대상이었다. 테마와 구현 일관성은 4점.
+- **글자 크기는 키우지 않고 한 단계 낮췄다.** 사용자가 전체화면에서 제목·리드가 접히는 것을 지적했다. 상한을 h1 3rem(48px), h2 2.75rem(44px), h3 1.22rem, 리드 1.12rem, 지표 3.5rem 로 내려 h1>h2 위계를 복구했고 1440px 에서 섹션 제목 7개가 모두 한 줄이다. 10~11.5px 였던 보도 칩·흐름도 노드는 내용 텍스트라 12px 로, pill 과 NOW 배지는 10.5px 로 올렸다. 대문자 자간 라벨(log-k·work-meta 11px)은 그대로다.
+- **사진은 `public/` 이 아니라 `src/assets/` 에 있다.** Astro `<Picture>` 가 빌드 때 480/720/893(960)px AVIF·WebP 를 만든다. `tests/redesign.test.ts` 의 사진 존재 검사도 이 경로를 본다. 히어로는 `loading="eager" fetchpriority="high"`.
+- **Geist 만 비동기, Pretendard 는 차단 유지.** Geist 는 숫자·라벨 전용이라 swap 이 눈에 덜 띈다. Pretendard 를 비동기로 하면 본문 전체가 FOUT 로 흔들린다. 그 대가로 CLS 가 0.017 → 0.036 으로 늘었지만 양호 범위다.
+- **hover 는 `@media (hover:hover)` 안에만.** 터치에서 탭 후 리프트가 고정되는 문제. global.css 16개, motion.css 2개.
+- **카운트업 접근성.** `.stat-n`·`.work-meta` 는 `.sr` 원문 + `aria-hidden` 숫자 두 span 이다. `data-count` 는 숫자 span 에만 붙는다.
+- **Lighthouse 모바일 성능 0.87 → 0.96.** LCP 3.8s → 2.5s, FCP 1.8 → 1.6, SI 2.3 → 1.9. 검출기 잔여 경고는 Geist 과다 사용 1건이며 라벨 전용이라 수용.
+
 ## 기준치
 
 - Lighthouse 모바일 성능 (작업 전) 0.86. 사후 0.87 (LCP 3.8s, CLS 0.017, TBT 70ms). 측정은 `npx lighthouse` 헤드리스, `npm run preview` 대상.
