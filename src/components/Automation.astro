@@ -20,7 +20,7 @@ const photos = ['/teddy-royalty.jpg', '/teddy-invention.jpg', '/teddy-priorart.j
               <img src={photos[i % photos.length]} alt={a.title} loading="lazy" width="1400" height="875" />
             </figure>
             <div>
-              <p class="work-meta">{a.status}</p>
+              <p class="work-meta" data-count>{a.status}</p>
               <h3 class="h3" style="margin-top:12px">{a.title}</h3>
               <p class="body" style="margin-top:14px">{a.description}</p>
             </div>

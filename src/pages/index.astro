@@ -12,6 +12,7 @@ import Activities from '../components/Activities.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import PageScript from '../components/PageScript.astro';
+import MotionScript from '../components/MotionScript.astro';
 import { getContent } from '../data';
 const content = getContent('ko');
 ---
@@ -30,4 +31,5 @@ const content = getContent('ko');
   </main>
   <Footer content={content} />
   <PageScript />
+  <MotionScript />
 </BaseLayout>
