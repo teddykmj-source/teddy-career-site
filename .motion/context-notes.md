@@ -17,10 +17,23 @@
 - **로케일 전환 페이드는 `@view-transition` (문서 간).** Astro `<ClientRouter />` 를 쓰면 `is:inline` PageScript 재실행 문제를 떠안는다. 문서 간 뷰 전환은 CSS 한 줄이고 라우터가 없다.
 - **문서 위치.** 저장소 관례(`.redesign/HANDOFF.md`)를 따라 `.motion/` 에 둔다. superpowers 기본 경로(`docs/superpowers/`)는 쓰지 않는다.
 
+
+## 2026-10-01 구현 중 결정
+
+- **Task 2 regex 를 `/\d+(?:,\d{3})*/` 로 좁혔다.** 계획의 `/\d[\d,]*/` 는 `'항목 3, 기타'` 같은 문자열에서 최종값이 원문과 달라졌다. 실제 콘텐츠 문자열 왕복 테스트를 추가해 "최종값 = 원문" 을 고정했다.
+- **Task 11 Boundary 아이콘의 점선 화살표를 버리고 실선으로 통일했다.** `pi-draw-dashed` 가 offset 을 건드리지 않아 진행형 드로잉이 되지 않았고, round cap 에서는 점선이 실선처럼 보여 효과도 없었다. 계획이 명시한 fallback 그대로다.
+- **Task 6 히어로 네트워크는 유지한다.** 다크·라이트 모두 보일락 말락 수준이고 헤드라인 가독성을 해치지 않는다. 되돌리려면 `git revert 7c2c2d3`.
+- **흐름도 연결선은 600px 이상에서만 그린다.** 375px 에서 4번째 노드가 줄바꿈되며 연결선 조각이 남았다. `margin-left` 대신 `column-gap` 을 써서 줄바꿈 행 들여쓰기도 없앴다. `<ol>` 에 `role="list"` 를 붙여 `list-style:none` 에서도 목록 의미를 지킨다.
+- **경력 점·선은 같은 기준선을 쓴다.** 처음 계획(`view()` + `cover 15%~75%` / `entry 0%~60%`)은 점이 뷰포트에 들어오자마자 켜지고 선은 따로 채워졌다. 지금은 `.cv-list` 와 `.cv-row` 에 named view timeline 을 두고 `view-timeline-inset:0 40%` 로 뷰포트 60% 지점을 기준선으로 삼는다. 범위는 반드시 `entry-crossing` 이어야 한다. `entry` 는 subject 가 inset 스크롤포트보다 길면 "subject top 이 스크롤포트 top 에 닿는 지점" 을 100% 로 잡아 선이 점보다 앞서 간다.
+- **히어로 h1 의 줄 사이 공백 `{' '}<br />` 를 되살렸다.** 어절 span 작업 중 빠져 textContent 가 "전략으로연결하는" 으로 붙었었다.
+- **`tests/motion.test.ts` 의 `@supports` 검사는 주석을 벗긴 뒤 중괄호 깊이를 세는 스캐너다.** 처음 regex 는 중첩 블록에서 거짓 통과했다. 가드에 `animation:none!important` 가 있는지도 단언한다(scroll-driven 은 duration 을 무시하므로 이 줄이 가드의 핵심이다).
+- **보류한 것.** 카드 hover 를 `@media (hover:hover)` 로 묶기(기존 `.casc-item` 패턴과 동일하게 둠), 카운트업 threshold 를 `.rv` 와 맞추기, 2행 이후 점 위치를 `.cv-when` 기준으로 옮기기, 틸트의 매 이벤트 `getBoundingClientRect`. 모두 현재 동작에 문제가 없어 손대지 않았다.
+
 ## 기준치
 
-- Lighthouse 모바일 성능 (작업 전). 0.86 (npx lighthouse 13.5.0, --preset=perf, 모바일, 헤드리스, npm run preview 대상. motion.css 추가 직후 측정이나 내용은 keyframes 1개와 @supports 블록뿐이라 기준치로 본다).
+- Lighthouse 모바일 성능 (작업 전) 0.86. 사후 0.87 (LCP 3.8s, CLS 0.017, TBT 70ms). 측정은 `npx lighthouse` 헤드리스, `npm run preview` 대상.
+- 런타임 스크립트는 HTML 에 인라인된 module 약 1.5KB. 외부 의존성 0.
 
 ## 열린 질문
 
-- Task 6 (히어로 배경 네트워크)은 실제로 보고 유지 여부를 결정한다.
+- `/` ↔ `/en/` 교차 페이드 때마다 히어로 진입 연출(어절, 네트워크 드로잉)이 다시 재생된다. 의도된 동작으로 두었다. 거슬리면 `@view-transition` 만 빼면 된다.
