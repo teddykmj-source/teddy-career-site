@@ -90,7 +90,7 @@
     btn.firstChild.textContent = d.sending + ' ';
     fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
       .then(function (res) {
-        if (res.ok) { form.style.display = 'none'; okBox.style.display = 'block'; return; }
+        if (res.ok) { form.style.display = 'none'; okBox.classList.add('show'); return; }
         return res.json().then(function (j) {
           var m = (j && j.errors) ? j.errors.map(function (x) { return x.message; }).filter(Boolean) : [];
           ferr.textContent = m.length ? d.errSend + ' (' + m.join(' ') + ')' : d.errSend;

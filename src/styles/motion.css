@@ -48,6 +48,14 @@
   @keyframes nav-shrink{to{top:12px;padding-top:5px;padding-bottom:5px;box-shadow:inset 0 0 0 1px var(--hair),var(--lift-3)}}
 }
 
+/* ── 전문 영역 카드와 칩: hover 시 떠오른다. 캐스케이드 카드와 같은 문법 ── */
+.cards .shell,.areas .shell{transition:transform .9s var(--ease),box-shadow .9s var(--ease)}
+.cards .shell:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 1px var(--hair),var(--lift-3)}
+.areas .shell:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px var(--hair),var(--lift-2)}
+
+/* ── 연락 폼 완료 상태: 떠오르며 등장 ── */
+.ok.show{display:block;animation:rise-in .8s var(--ease) both}
+
 /* ── reduced-motion 가드. 반드시 파일 끝. 신규 애니메이션은 즉시 최종 상태로 간다 ── */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
