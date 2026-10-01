@@ -23,7 +23,7 @@ const photos = ['/teddy-royalty.jpg', '/teddy-invention.jpg', '/teddy-priorart.j
               <p class="work-meta" data-count>{a.status}</p>
               <h3 class="h3" style="margin-top:12px">{a.title}</h3>
               <p class="body" style="margin-top:14px">{a.description}</p>
-              <ol class="flow">
+              <ol class="flow" role="list">
                 {a.flow.nodes.map((n, k) => (
                   <li class={`flow-n${a.flow.hold === k ? ' flow-hold' : ''}`}
                       style={`--d:${k * 420 + (k > a.flow.hold ? 500 : 0)}ms`}>{n}</li>
