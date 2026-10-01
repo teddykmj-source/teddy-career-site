@@ -50,8 +50,8 @@
 
 /* ── 전문 영역 카드와 칩: hover 시 떠오른다. 캐스케이드 카드와 같은 문법 ── */
 .cards .shell,.areas .shell{transition:transform .9s var(--ease),box-shadow .9s var(--ease)}
-.cards .shell:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 1px var(--hair),var(--lift-3)}
-.areas .shell:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px var(--hair),var(--lift-2)}
+@media (hover:hover){.cards .shell:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 1px var(--hair),var(--lift-3)}}
+@media (hover:hover){.areas .shell:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px var(--hair),var(--lift-2)}}
 
 /* ── 연락 폼 완료 상태: 떠오르며 등장 ── */
 .ok.show{display:block;animation:rise-in .8s var(--ease) both}
