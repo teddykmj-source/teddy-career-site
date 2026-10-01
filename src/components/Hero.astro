@@ -1,14 +1,26 @@
 ---
 // 히어로: 비대칭 분할 + Z축 캐스케이드(사진 카드 위에 사양 카드가 겹친다)
 import type { SiteContent } from '../data';
+import { splitWords } from '../motion/words';
 interface Props { content: SiteContent; }
 const { content } = Astro.props;
+let wi = 0;
+const lines = content.headline.map((line) => splitWords(line).map((w) => ({ w, i: wi++ })));
 ---
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
       <span class="pill">{content.eyebrow}</span>
-      <h1 class="h1">{content.headline.map((line, i) => <>{i > 0 && <>{' '}<br /></>}{line}</>)}</h1>
+      <h1 class="h1">
+        {lines.map((words, li) => (
+          <>
+            {li > 0 && <br />}
+            {words.map(({ w, i }, k) => (
+              <>{k > 0 && ' '}<span class="w" style={`--i:${i}`}>{w}</span></>
+            ))}
+          </>
+        ))}
+      </h1>
       <p class="lead">{content.tagline}</p>
       <div class="hero-cta">
         <a class="btn btn-dark" href="#cap">{content.nav.highlights} <span class="ico" aria-hidden="true">↗</span></a>

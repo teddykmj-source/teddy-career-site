@@ -10,6 +10,14 @@
   ::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:var(--ease)}
 }
 
+/* ── Hero 진입: 어절이 차례로 떠오르고, 배지·리드·CTA 가 뒤따른다 ── */
+.hero .w{display:inline-block;animation:w-in .9s var(--ease) both;animation-delay:calc(120ms + var(--i) * 55ms)}
+@keyframes w-in{from{opacity:0;transform:translateY(.6em);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.hero .pill,.hero .lead,.hero .hero-cta{animation:rise-in .9s var(--ease) both}
+.hero .pill{animation-delay:0ms}
+.hero .lead{animation-delay:620ms}
+.hero .hero-cta{animation-delay:760ms}
+
 /* ── reduced-motion 가드. 반드시 파일 끝. 신규 애니메이션은 즉시 최종 상태로 간다 ── */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
