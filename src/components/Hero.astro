@@ -1,6 +1,8 @@
 ---
 // 히어로: 비대칭 분할 + Z축 캐스케이드(사진 카드 위에 사양 카드가 겹친다)
 import type { SiteContent } from '../data';
+import { Picture } from 'astro:assets';
+import photo from '../assets/teddy-photo.jpg';
 import { splitWords } from '../motion/words';
 interface Props { content: SiteContent; }
 const { content } = Astro.props;
@@ -42,7 +44,7 @@ const lines = content.headline.map((line) => splitWords(line).map((w) => ({ w, i
       <div class="stack-a tilt-l">
         <div class="shell"><div class="core">
           <figure class="figbox" style="aspect-ratio:4/4.4">
-            <img src="/teddy-photo.jpg" alt={content.fullName} width="893" height="1100" fetchpriority="high" />
+            <Picture src={photo} formats={['avif', 'webp']} widths={[480, 720, 893]} sizes="(min-width: 1000px) 32vw, 100vw" alt={content.fullName} loading="eager" fetchpriority="high" />
           </figure>
         </div></div>
       </div>

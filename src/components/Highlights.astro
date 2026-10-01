@@ -1,9 +1,13 @@
 ---
 // 전문 영역: 대표 3건(highlights, 사진 포함) + 보조 6건(skills 칩)
 import type { SiteContent } from '../data';
+import { Picture } from 'astro:assets';
+import sep from '../assets/teddy-sep.jpg';
+import audit from '../assets/teddy-audit.jpg';
+import priorart from '../assets/teddy-priorart.jpg';
 interface Props { content: SiteContent; }
 const { content } = Astro.props;
-const photos = ['/teddy-sep.jpg', '/teddy-audit.jpg', '/teddy-priorart.jpg'];
+const photos = [sep, audit, priorart];
 ---
 <section class="sec" id="cap" style="padding-top:0">
   <div class="wrap">
@@ -17,7 +21,7 @@ const photos = ['/teddy-sep.jpg', '/teddy-audit.jpg', '/teddy-priorart.jpg'];
       {content.highlights.map((h, i) => (
         <div class="rv"><div class="shell"><div class="core core-pad"><article class="card-in">
           <figure class="card-fig">
-            <img src={photos[i % photos.length]} alt={h.title} loading="lazy" width="1400" height="700" />
+            <Picture src={photos[i % photos.length]} formats={['avif', 'webp']} widths={[480, 720, 960]} sizes="(min-width: 860px) 30vw, 100vw" alt={h.title} loading="lazy" />
           </figure>
           <h3 class="h3">{h.title}</h3>
           <p class="body">{h.description}</p>

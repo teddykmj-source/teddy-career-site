@@ -1,9 +1,13 @@
 ---
 // 만들고 있는 시스템: Z축 캐스케이드로 겹쳐 쌓는다.
 import type { SiteContent } from '../data';
+import { Picture } from 'astro:assets';
+import royalty from '../assets/teddy-royalty.jpg';
+import invention from '../assets/teddy-invention.jpg';
+import priorart from '../assets/teddy-priorart.jpg';
 interface Props { content: SiteContent; }
 const { content } = Astro.props;
-const photos = ['/teddy-royalty.jpg', '/teddy-invention.jpg', '/teddy-priorart.jpg'];
+const photos = [royalty, invention, priorart];
 ---
 <section class="sec" id="work" style="padding-top:0">
   <div class="wrap">
@@ -17,7 +21,7 @@ const photos = ['/teddy-royalty.jpg', '/teddy-invention.jpg', '/teddy-priorart.j
         <div class={`casc-item casc-${i + 1} rv`}>
           <div class="shell"><div class="core core-pad"><div class="work">
             <figure class="work-fig">
-              <img src={photos[i % photos.length]} alt={a.title} loading="lazy" width="1400" height="875" />
+              <Picture src={photos[i % photos.length]} formats={['avif', 'webp']} widths={[480, 720, 960]} sizes="(min-width: 880px) 42vw, 100vw" alt={a.title} loading="lazy" />
             </figure>
             <div>
               <p class="work-meta" data-count>{a.status}</p>

@@ -7,6 +7,7 @@ import { getContent } from '../src/data';
 const ko = getContent('ko');
 const en = getContent('en');
 const pub = (f: string) => fileURLToPath(new URL(`../public/${f}`, import.meta.url));
+const asset = (f: string) => fileURLToPath(new URL(`../src/assets/${f}`, import.meta.url));
 
 describe('재설계 콘텐츠 대칭', () => {
   it('설계 원칙이 3개씩 같은 key 로 존재한다', () => {
@@ -43,8 +44,8 @@ describe('재설계 콘텐츠 대칭', () => {
 
 describe('재설계 정적 자산', () => {
   const photos = ['teddy-photo', 'teddy-sep', 'teddy-audit', 'teddy-royalty', 'teddy-invention', 'teddy-priorart'];
-  it('사진 6장이 public/ 에 있다', () => {
-    for (const p of photos) expect(existsSync(pub(`${p}.jpg`)), p).toBe(true);
+  it('사진 6장이 src/assets/ 에 있어 빌드 때 AVIF/WebP 로 변환된다', () => {
+    for (const p of photos) expect(existsSync(asset(`${p}.jpg`)), p).toBe(true);
   });
 
   it('기존 색인 URL 리다이렉트가 설정돼 있다', () => {
