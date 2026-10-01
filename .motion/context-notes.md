@@ -51,6 +51,13 @@
 - **브라우저 하한.** `light-dark()` 는 Chrome 123·Safari 17.5·Firefox 120(2024년 상반기) 이상이다. 그 아래에서는 색 토큰이 무효가 돼 흰 바탕·검정 글자의 무장식 상태로 읽힌다(깨지지는 않는다). Lightning CSS 는 폴리필 없이 그대로 내보낸다. 2026년 시점 점유율로 수용했다.
 - **검증.** `tests/theme.test.ts` 가 토큰 단일 선언과 테마 블록 내용을 고정한다. Chrome 에서 시스템 다크·강제 라이트·강제 다크 세 상태의 body/surface/accent/그림자/사진 필터가 이전 값과 같음을 확인했다.
 
+## 2026-10-02 숫자·라벨 글꼴을 Geist 에서 Archivo 로
+
+- **왜.** 검출기가 Geist 를 과다 사용 글꼴로 경고했고, 후보 4종 비교(https://claude.ai/artifact/NftJWdfR4X5A1AwFaLByt9)에서 Archivo 가 숫자가 가장 단단하면서 Pretendard 와 톤이 가장 가까웠다. Bricolage 는 개성이 강해 모션 레이어 위에 얹기엔 과했다.
+- **어디.** `--en` 토큰 한 줄과 BaseLayout 의 Google Fonts 링크(400·500·600 만). 본문 Pretendard 는 그대로다.
+- **지표 웨이트 600 → 500, 자간 -.04em → -.045em.** Archivo 가 넓어 600 이면 56px 지표가 무거워진다.
+- 검출기 경고 0건, 테스트 59건, 빌드 정상.
+
 ## 기준치
 
 - Lighthouse 모바일 성능 (작업 전) 0.86. 사후 0.87 (LCP 3.8s, CLS 0.017, TBT 70ms). 측정은 `npx lighthouse` 헤드리스, `npm run preview` 대상.
