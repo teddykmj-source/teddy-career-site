@@ -62,6 +62,14 @@
 
 - `--muted` 라이트 값을 #656C78 → #5E6572 로. 라이트 기판 대비 4.85:1 → 5.38:1, 표면 대비 5.29:1 → 5.87:1. AA 경계에 걸쳐 있던 여유를 벌었다. 다크 값은 그대로다.
 
+## 2026-10-02 Pretendard 자체 호스팅
+
+- **왜.** 남은 LCP 병목이 jsdelivr 의 Pretendard CSS(렌더 차단, 교차 출처)였다. 외부 CDN 의존도 하나 줄인다.
+- **어떻게.** devDependency `pretendard@1.3.9` 의 `pretendardvariable-dynamic-subset.css` 를 BaseLayout 에서 import 한다. Vite 가 92개 woff2 서브셋을 `_astro/` 로 해시 붙여 내보내고, 브라우저는 unicode-range 에 맞는 조각만 받는다. `font-display:swap` 은 원본 CSS 그대로다.
+- **대가.** dist 가 약 3MB 커진다(서브셋 파일). 실제 전송량은 페이지에 나오는 글자 범위만큼이라 CDN 때와 같다.
+- `tests/fonts.test.ts` 가 jsdelivr 링크 부재와 Archivo 비동기 로드를 고정한다.
+- **효과.** Lighthouse 모바일 0.96 유지, LCP 2.6s → 2.5s, TBT 60 → 30ms, CLS 0.036 → 0.04. 외부 출처는 Google Fonts(Archivo) 하나만 남았다.
+
 ## 기준치
 
 - Lighthouse 모바일 성능 (작업 전) 0.86. 사후 0.87 (LCP 3.8s, CLS 0.017, TBT 70ms). 측정은 `npx lighthouse` 헤드리스, `npm run preview` 대상.
