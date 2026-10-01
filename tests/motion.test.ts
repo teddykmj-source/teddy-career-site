@@ -7,6 +7,27 @@ import { getContent } from '../src/data';
 const css = () => readFileSync(fileURLToPath(new URL('../src/styles/motion.css', import.meta.url)), 'utf-8');
 const layout = () => readFileSync(fileURLToPath(new URL('../src/layouts/BaseLayout.astro', import.meta.url)), 'utf-8');
 
+/** `@supports` 블록을 중괄호 깊이를 세어 통째로 제거한다. 중첩 블록도 안전하다. */
+function stripSupports(src: string): string {
+  let out = '';
+  let i = 0;
+  while (i < src.length) {
+    const at = src.indexOf('@supports', i);
+    if (at === -1) { out += src.slice(i); break; }
+    out += src.slice(i, at);
+    const open = src.indexOf('{', at);
+    let depth = 1;
+    let j = open + 1;
+    while (j < src.length && depth > 0) {
+      if (src[j] === '{') depth++;
+      else if (src[j] === '}') depth--;
+      j++;
+    }
+    i = j;
+  }
+  return out;
+}
+
 describe('motion.css 안전장치', () => {
   it('BaseLayout 이 global.css 뒤에 motion.css 를 로드한다', () => {
     const src = layout();
@@ -22,14 +43,24 @@ describe('motion.css 안전장치', () => {
     expect(tail).toContain('animation-duration:.01ms!important');
     expect(tail).toContain('animation-delay:0ms!important');
     expect(tail).toContain('transition-duration:.01ms!important');
+    expect(tail).toContain('animation:none!important');
     expect(src.slice(guard + 1)).not.toContain('@keyframes');
   });
 
   it('scroll-driven 과 view-transition 은 @supports 안에만 있다', () => {
-    const src = css();
-    const bare = src.replace(/@supports[^{]*\{[\s\S]*?\n\}\n/g, '');
+    const bare = stripSupports(css());
     expect(bare).not.toContain('animation-timeline');
     expect(bare).not.toContain('@view-transition');
+  });
+
+  it('stripSupports 는 @supports 밖의 animation-timeline 을 남긴다', () => {
+    const src = '@supports (x){ .a{animation-timeline:scroll()} }\n@media (y){ .b{animation-timeline:view()} }';
+    expect(stripSupports(src)).toContain('animation-timeline');
+  });
+
+  it('stripSupports 는 중첩된 @supports 를 통째로 제거한다', () => {
+    const src = '@media (y){ @supports (x){ .c{animation-timeline:view()} } .d{} }';
+    expect(stripSupports(src)).not.toContain('animation-timeline');
   });
 });
 
