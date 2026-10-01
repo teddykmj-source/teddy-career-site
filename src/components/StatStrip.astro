@@ -8,7 +8,7 @@ const { content } = Astro.props;
   <div class="stats stats-4">
     {content.stats.map((s) => (
       <div class="rv"><div class="shell"><div class="core core-pad">
-        <div class="num stat-n" data-count>{s.value}</div>
+        <div class="num stat-n"><span class="sr">{s.value}</span><span aria-hidden="true" data-count>{s.value}</span></div>
         <p class="stat-l">{s.href ? <a class="stat-link" href={s.href}>{s.label} <span aria-hidden="true">↗</span></a> : s.label}</p>
       </div></div></div>
     ))}

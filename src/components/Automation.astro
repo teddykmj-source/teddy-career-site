@@ -21,10 +21,10 @@ const photos = [royalty, invention, priorart];
         <div class={`casc-item casc-${i + 1} rv`}>
           <div class="shell"><div class="core core-pad"><div class="work">
             <figure class="work-fig">
-              <Picture src={photos[i % photos.length]} formats={['avif', 'webp']} widths={[480, 720, 960]} sizes="(min-width: 880px) 42vw, 100vw" alt={a.title} loading="lazy" />
+              <Picture src={photos[i % photos.length]} formats={['avif', 'webp']} widths={[480, 720, 960]} sizes="(min-width: 880px) 42vw, 100vw" alt="" loading="lazy" />
             </figure>
             <div>
-              <p class="work-meta" data-count>{a.status}</p>
+              <p class="work-meta"><span class="sr">{a.status}</span><span aria-hidden="true" data-count>{a.status}</span></p>
               <h3 class="h3" style="margin-top:12px">{a.title}</h3>
               <p class="body" style="margin-top:14px">{a.description}</p>
               <ol class="flow" role="list">

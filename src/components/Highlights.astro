@@ -21,7 +21,7 @@ const photos = [sep, audit, priorart];
       {content.highlights.map((h, i) => (
         <div class="rv"><div class="shell"><div class="core core-pad"><article class="card-in">
           <figure class="card-fig">
-            <Picture src={photos[i % photos.length]} formats={['avif', 'webp']} widths={[480, 720, 960]} sizes="(min-width: 860px) 30vw, 100vw" alt={h.title} loading="lazy" />
+            <Picture src={photos[i % photos.length]} formats={['avif', 'webp']} widths={[480, 720, 960]} sizes="(min-width: 860px) 30vw, 100vw" alt="" loading="lazy" />
           </figure>
           <h3 class="h3">{h.title}</h3>
           <p class="body">{h.description}</p>
