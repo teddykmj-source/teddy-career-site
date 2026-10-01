@@ -11,15 +11,17 @@ const { content } = Astro.props;
       <h2 class="h2">{content.headings.experience}</h2>
     </div>
     <div class="rv"><div class="shell"><div class="core core-pad">
-      {content.experience.map((e) => (
-        <div class="cv-row">
-          <div class="cv-when">{e.period}</div>
-          <div>
-            <div class="cv-who">{e.title}{e.current && <span class="cv-now">NOW</span>}</div>
-            <p class="cv-what">{e.description}</p>
+      <div class="cv-list">
+        {content.experience.map((e) => (
+          <div class="cv-row">
+            <div class="cv-when">{e.period}</div>
+            <div>
+              <div class="cv-who">{e.title}{e.current && <span class="cv-now">NOW</span>}</div>
+              <p class="cv-what">{e.description}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div></div></div>
   </div>
 </section>
