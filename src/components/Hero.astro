@@ -25,7 +25,7 @@ const lines = content.headline.map((line) => splitWords(line).map((w) => ({ w, i
       <h1 class="h1">
         {lines.map((words, li) => (
           <>
-            {li > 0 && <br />}
+            {li > 0 && <>{' '}<br /></>}
             {words.map(({ w, i }, k) => (
               <>{k > 0 && ' '}<span class="w" style={`--i:${i}`}>{w}</span></>
             ))}
