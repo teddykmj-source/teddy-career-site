@@ -33,7 +33,7 @@
 - [x] 17. adapt. hover 규칙 18개를 `@media (hover:hover)` 로, 작은 인라인 링크 padding-block 4px
 - [x] 18. harden. 장식 사진 alt 비움, 카운트업 숫자 aria-hidden + .sr 원문
 - [x] 19. polish. 검출기·테스트·빌드·1440/450px·라이트/다크 확인, Lighthouse 0.87 → 0.96
-- [ ] 20. main 병합·배포 (사용자 확인 후)
+- [x] 20. main 병합·배포 (ff, 2026-10-02)
 
 ## 되돌리는 법
 
