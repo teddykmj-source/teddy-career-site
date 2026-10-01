@@ -1,0 +1,18 @@
+/* 모션 레이어. global.css 뒤에 로드된다. 신규 애니메이션은 전부 이 파일에만 쓴다.
+   규칙: 파일 끝의 reduced-motion 가드 앞에 추가하고, scroll-driven 과 view-transition 은 @supports 안에만 둔다. */
+
+/* ── 공용 keyframes ── */
+@keyframes rise-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ── 문서 간 교차 페이드: / ↔ /en/ ↔ /certifications/. 라우터 없이 브라우저 기능만 켠다 ── */
+@supports (view-transition-name: root) {
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:var(--ease)}
+}
+
+/* ── reduced-motion 가드. 반드시 파일 끝. 신규 애니메이션은 즉시 최종 상태로 간다 ── */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .nav,.cv-list::after,.cv-row::before{animation:none!important}
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+}

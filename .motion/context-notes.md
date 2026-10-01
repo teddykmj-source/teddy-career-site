@@ -19,7 +19,7 @@
 
 ## 기준치
 
-- Lighthouse 모바일 성능 (작업 전). 미측정. Task 1 에서 기록한다.
+- Lighthouse 모바일 성능 (작업 전). 0.86 (npx lighthouse 13.5.0, --preset=perf, 모바일, 헤드리스, npm run preview 대상. motion.css 추가 직후 측정이나 내용은 keyframes 1개와 @supports 블록뿐이라 기준치로 본다).
 
 ## 열린 질문
 
