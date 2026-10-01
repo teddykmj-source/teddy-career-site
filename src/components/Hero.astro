@@ -8,6 +8,17 @@ let wi = 0;
 const lines = content.headline.map((line) => splitWords(line).map((w) => ({ w, i: wi++ })));
 ---
 <section class="hero">
+<svg class="hero-net" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <g class="net-lines">
+    <path pathLength="1" d="M80 120 L300 220 L520 160 L720 300" />
+    <path pathLength="1" d="M300 220 L260 420 L540 480" />
+    <path pathLength="1" d="M520 160 L540 480" />
+  </g>
+  <g class="net-nodes">
+    <circle cx="80" cy="120" r="3" /><circle cx="300" cy="220" r="3" /><circle cx="520" cy="160" r="3" />
+    <circle cx="720" cy="300" r="3" /><circle cx="260" cy="420" r="3" /><circle cx="540" cy="480" r="3" />
+  </g>
+</svg>
   <div class="wrap hero-grid">
     <div>
       <span class="pill">{content.eyebrow}</span>
