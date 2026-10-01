@@ -9,6 +9,7 @@ const layout = () => readFileSync(fileURLToPath(new URL('../src/layouts/BaseLayo
 
 /** `@supports` 블록을 중괄호 깊이를 세어 통째로 제거한다. 중첩 블록도 안전하다. */
 function stripSupports(src: string): string {
+  src = src.replace(/\/\*[\s\S]*?\*\//g, '');
   let out = '';
   let i = 0;
   while (i < src.length) {
@@ -16,6 +17,7 @@ function stripSupports(src: string): string {
     if (at === -1) { out += src.slice(i); break; }
     out += src.slice(i, at);
     const open = src.indexOf('{', at);
+    if (open === -1) { out += src.slice(at); break; }
     let depth = 1;
     let j = open + 1;
     while (j < src.length && depth > 0) {
@@ -56,6 +58,11 @@ describe('motion.css 안전장치', () => {
   it('stripSupports 는 @supports 밖의 animation-timeline 을 남긴다', () => {
     const src = '@supports (x){ .a{animation-timeline:scroll()} }\n@media (y){ .b{animation-timeline:view()} }';
     expect(stripSupports(src)).toContain('animation-timeline');
+  });
+
+  it('stripSupports 는 주석 속 @supports 문구에 속지 않는다', () => {
+    const src = '/* @supports 안에만 */\n.a{animation-timeline:scroll()}\n@supports (x){.b{animation-timeline:view()}}';
+    expect(stripSupports(src).match(/animation-timeline/g)).toHaveLength(1);
   });
 
   it('stripSupports 는 중첩된 @supports 를 통째로 제거한다', () => {

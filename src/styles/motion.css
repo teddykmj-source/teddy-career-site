@@ -114,9 +114,9 @@
     background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--divider-strong)}
   @supports (animation-timeline: view()) {
     .cv-list{view-timeline:--cv block;view-timeline-inset:0 40%}
-    .cv-list::after{animation:cv-fill linear both;animation-timeline:--cv;animation-range:entry 0% entry 100%}
+    .cv-list::after{animation:cv-fill linear both;animation-timeline:--cv;animation-range:entry-crossing 0% entry-crossing 100%}
     .cv-row{view-timeline:--cvrow block;view-timeline-inset:0 40%}
-    .cv-row::before{animation:cv-dot linear both;animation-timeline:--cvrow;animation-range:entry 0% entry 12%}
+    .cv-row::before{animation:cv-dot linear both;animation-timeline:--cvrow;animation-range:entry-crossing 0% entry-crossing 12%}
   }
 }
 @keyframes cv-fill{to{transform:scaleY(1)}}
