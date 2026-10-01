@@ -72,6 +72,38 @@
 @keyframes flow-line{to{transform:scaleX(1)}}
 @keyframes flow-pop{to{transform:scale(1)}}
 
+/* ── 설계 원칙 아이콘: 카드가 .in 이 되면 각 원칙을 한 번 연기한다 ── */
+.pi{display:block;width:96px;height:48px;margin-bottom:14px;color:var(--accent);overflow:visible}
+.pi *{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pi .pi-dot,.pi .pi-tag{fill:currentColor;stroke:none}
+.pi .pi-wave{fill:none;stroke:currentColor}
+.pi .pi-line,.pi .pi-wall{opacity:.35}
+.pi .pi-d{stroke-dasharray:1;stroke-dashoffset:1}
+.pi .pi-bar{transform-box:fill-box;transform-origin:50% 100%}
+.pi .pi-tag{opacity:0}
+
+/* Gate: 체크가 그려지면 문이 열리고 점이 통과한다 */
+.rv.in .pi-gate .pi-check{animation:pi-draw .5s var(--ease) .3s both}
+.rv.in .pi-gate .pi-bar{animation:pi-open .7s var(--ease) 1s both}
+.rv.in .pi-gate .pi-dot{animation:pi-pass 2.2s var(--ease) .1s both}
+@keyframes pi-open{to{transform:rotate(-70deg)}}
+@keyframes pi-pass{0%{transform:translateX(0)}30%{transform:translateX(34px)}55%{transform:translateX(34px)}100%{transform:translateX(84px)}}
+
+/* Split: 한 줄기가 규칙(사각)과 AI(물결)로 갈라진다 */
+.rv.in .pi-split .pi-trunk{animation:pi-draw .5s var(--ease) .2s both}
+.rv.in .pi-split .pi-branch{animation:pi-draw .7s var(--ease) .6s both}
+.rv.in .pi-split .pi-tag{animation:pi-show .4s var(--ease) 1.3s both}
+
+/* Boundary: 읽기 화살표는 벽을 지나고, 쓰기 화살표는 벽에서 막혀 X 가 찍힌다 */
+.rv.in .pi-boundary .pi-read{animation:pi-draw .7s var(--ease) .2s both}
+.rv.in .pi-boundary .pi-write{animation:pi-draw .5s var(--ease) 1s both}
+.rv.in .pi-boundary .pi-x{animation:pi-draw .35s var(--ease) 1.5s both}
+.pi .pi-read{stroke-dasharray:.06 .04}
+.rv.in .pi-boundary .pi-read{animation-name:pi-draw-dashed}
+@keyframes pi-draw{to{stroke-dashoffset:0}}
+@keyframes pi-draw-dashed{from{stroke-dasharray:0 1}to{stroke-dasharray:.06 .04}}
+@keyframes pi-show{to{opacity:1}}
+
 /* ── reduced-motion 가드. 반드시 파일 끝. 신규 애니메이션은 즉시 최종 상태로 간다 ── */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}

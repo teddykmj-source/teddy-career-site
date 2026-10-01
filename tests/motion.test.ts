@@ -63,3 +63,10 @@ describe('자동화 흐름도 데이터', () => {
     }
   });
 });
+
+describe('설계 원칙 아이콘', () => {
+  it('원칙 key 는 아이콘이 있는 3종이다', () => {
+    const keys = getContent('ko').principles.map((p) => p.key.toLowerCase());
+    expect(keys).toEqual(['gate', 'split', 'boundary']);
+  });
+});

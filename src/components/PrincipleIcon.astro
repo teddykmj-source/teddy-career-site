@@ -1,0 +1,31 @@
+---
+// 설계 원칙 아이콘 3종. key 로 고르고, 모르는 key 면 아무것도 그리지 않는다. 선 굵기는 토글 아이콘과 같은 1.6.
+interface Props { kind: string; }
+const kind = Astro.props.kind.toLowerCase();
+---
+{kind === 'gate' && (
+  <svg class="pi pi-gate" viewBox="0 0 96 48" aria-hidden="true" focusable="false">
+    <path class="pi-line" d="M6 24 H90" />
+    <rect class="pi-bar" x="46" y="8" width="3" height="32" rx="1.5" />
+    <path class="pi-check pi-d" pathLength="1" d="M56 12 l4 4 l8 -8" />
+    <circle class="pi-dot" cx="6" cy="24" r="4" />
+  </svg>
+)}
+{kind === 'split' && (
+  <svg class="pi pi-split" viewBox="0 0 96 48" aria-hidden="true" focusable="false">
+    <path class="pi-trunk pi-d" pathLength="1" d="M6 24 H40" />
+    <path class="pi-branch pi-d" pathLength="1" d="M40 24 C56 24 56 10 72 10 H90" />
+    <path class="pi-branch pi-d" pathLength="1" d="M40 24 C56 24 56 38 72 38 H90" />
+    <rect class="pi-tag" x="78" y="4" width="12" height="12" rx="2" />
+    <path class="pi-tag pi-wave" d="M78 38 q3 -4 6 0 t6 0" />
+  </svg>
+)}
+{kind === 'boundary' && (
+  <svg class="pi pi-boundary" viewBox="0 0 96 48" aria-hidden="true" focusable="false">
+    <rect class="pi-doc" x="6" y="12" width="20" height="24" rx="3" />
+    <rect class="pi-wall" x="46" y="4" width="3" height="40" rx="1.5" />
+    <path class="pi-read pi-d" pathLength="1" d="M30 18 H72" />
+    <path class="pi-write pi-d" pathLength="1" d="M72 30 H54" />
+    <path class="pi-x pi-d" pathLength="1" d="M50 27 l6 6 M56 27 l-6 6" />
+  </svg>
+)}
