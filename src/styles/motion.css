@@ -58,7 +58,7 @@
 
 /* ── 자동화 흐름도: 카드가 .in 이 되면 왼쪽 노드부터 켜지고, hold 노드에서 점이 찍히며 한 박자 쉰다 ── */
 .flow{display:flex;flex-wrap:wrap;align-items:center;column-gap:8px;row-gap:10px;margin-top:22px;padding:0;list-style:none}
-.flow-n{position:relative;border-radius:999px;padding:6px 12px;font-size:11.5px;font-weight:550;color:var(--muted);
+.flow-n{position:relative;border-radius:999px;padding:7px 13px;font-size:12px;font-weight:550;color:var(--muted);
   background:var(--tint-1);box-shadow:inset 0 0 0 1px var(--chip-ring)}
 @media (min-width:600px){
 .flow{column-gap:26px}

@@ -126,15 +126,15 @@ ul{padding:0;list-style:none}
 /* 줄바꿈이 필요할 때 각 줄 길이를 고르게 나눠 고아 어절을 막는다. */
 .h1,.h2,.h3{text-wrap:balance}
 .lead,.body,.cv-what,.stat-l{text-wrap:pretty}
-.h1{font-size:clamp(2.1rem,4.4vw,3.2rem);font-weight:800;letter-spacing:-.042em;line-height:1.1}
-.h2{font-size:clamp(2rem,4.4vw,3.4rem);font-weight:750;letter-spacing:-.035em;line-height:1.14}
-.h3{font-size:clamp(1.08rem,1.7vw,1.32rem);font-weight:700;letter-spacing:-.024em;line-height:1.35}
-.lead{font-size:clamp(1.03rem,1.45vw,1.2rem);color:var(--muted);line-height:1.72;max-width:36ch}
+.h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.042em;line-height:1.1}
+.h2{font-size:clamp(1.85rem,3.6vw,2.75rem);font-weight:750;letter-spacing:-.035em;line-height:1.14}
+.h3{font-size:clamp(1.04rem,1.5vw,1.22rem);font-weight:700;letter-spacing:-.024em;line-height:1.35}
+.lead{font-size:clamp(1rem,1.3vw,1.12rem);color:var(--muted);line-height:1.72;max-width:38ch}
 .body{color:var(--muted);line-height:1.74;font-size:.97rem;max-width:58ch}
 .num{font-family:var(--en);font-variant-numeric:tabular-nums;font-weight:600;letter-spacing:-.04em}
 /* 아이브로우 배지: 극소형 알약 (§4.C) */
 .pill{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:6px 13px;
-  font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-family:var(--en);
+  font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-family:var(--en);
   color:var(--accent);background:var(--surface);box-shadow:inset 0 0 0 1px var(--hair),var(--lift-1)}
 .pill::before{content:"";width:5px;height:5px;border-radius:999px;background:var(--accent)}
 
@@ -259,7 +259,7 @@ ul{padding:0;list-style:none}
   .stats>*:nth-child(2){margin-top:clamp(26px,3.4vw,52px)}
   .stats>*:nth-child(3){margin-top:clamp(52px,6.8vw,104px)}
 }
-.stat-n{font-size:clamp(2.9rem,5.4vw,4rem);line-height:1}
+.stat-n{font-size:clamp(2.6rem,4.6vw,3.5rem);line-height:1}
 .stat-n em{font-style:normal;font-size:.44em;color:var(--accent);margin-left:.14em;letter-spacing:-.02em}
 .stat-l{margin-top:14px;font-size:.92rem;color:var(--muted)}
 
@@ -271,7 +271,7 @@ ul{padding:0;list-style:none}
 .card-fig{aspect-ratio:16/8;overflow:hidden;border-radius:calc(var(--r-in) - 12px);margin-bottom:6px}
 .card-fig img{width:100%;height:100%;object-fit:cover;filter:var(--img-adj);transition:filter .7s var(--ease)}
 .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:20px}
-.chip{border-radius:999px;padding:6px 13px;font-size:11.5px;font-weight:550;color:var(--muted);
+.chip{border-radius:999px;padding:8px 14px;font-size:12px;font-weight:550;color:var(--muted);
   background:var(--tint-1);box-shadow:inset 0 0 0 1px var(--chip-ring)}
 
 /* ── 선택 작업: 캐스케이드 ── */
@@ -426,10 +426,10 @@ a.log-r:hover p{color:var(--accent)}
 
 @media (min-width:640px){.areas-3{grid-template-columns:1fr 1fr}}
 @media (min-width:980px){.areas-3{grid-template-columns:repeat(3,1fr)}}
-.h3-sm{font-size:clamp(.98rem,1.4vw,1.08rem)}
+.h3-sm{font-size:clamp(.96rem,1.3vw,1.04rem)}
 
 /* 경력: 현직 표시 */
-.cv-now{margin-left:9px;font-family:var(--en);font-size:9.5px;font-weight:600;letter-spacing:.14em;
+.cv-now{margin-left:9px;font-family:var(--en);font-size:10.5px;font-weight:600;letter-spacing:.14em;
   color:var(--accent);border-radius:999px;padding:3px 8px;background:var(--tint-1);vertical-align:middle}
 
 /* 자격증 발급기관 */
@@ -453,5 +453,5 @@ a.log-r:hover p{color:var(--accent)}
 
 /* 내부 페이지: 떠 있는 내비를 피할 상단 여백 */
 .sec-top{padding-top:clamp(112px,13vw,150px)}
-.tm-kr{font-size:11.5px;font-weight:600;letter-spacing:.09em;color:var(--muted);text-transform:uppercase}
+.tm-kr{font-size:12px;font-weight:600;letter-spacing:.09em;color:var(--muted);text-transform:uppercase}
 @media (max-width:839px){.nav-lang{display:none}}
