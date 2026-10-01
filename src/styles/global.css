@@ -12,7 +12,7 @@
   --ground:light-dark(#F4F5F7,#0E1013);                /* 은빛 그레이 기판 */
   --surface:light-dark(#FFFFFF,#1E2227);
   --ink:light-dark(#14171C,#E8EAED);
-  --muted:light-dark(#656C78,#8A919C);                 /* 두 배경 모두에서 AA 통과 */
+  --muted:light-dark(#5E6572,#8A919C);                 /* 라이트 기판 5.4:1, 표면 5.9:1, 다크 표면 5.0:1 */
   --accent:light-dark(#2B5F63,#4FBFB4);
   --hair:light-dark(rgba(20,23,28,.065),rgba(255,255,255,.085));   /* 1px 회색 실선 대신 알파 링 */
   --shell:light-dark(rgba(20,23,28,.038),rgba(255,255,255,.035));
