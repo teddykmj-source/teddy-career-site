@@ -44,6 +44,13 @@
 - **카운트업 접근성.** `.stat-n`·`.work-meta` 는 `.sr` 원문 + `aria-hidden` 숫자 두 span 이다. `data-count` 는 숫자 span 에만 붙는다.
 - **Lighthouse 모바일 성능 0.87 → 0.96.** LCP 3.8s → 2.5s, FCP 1.8 → 1.6, SI 2.3 → 1.9. 검출기 잔여 경고는 Geist 과다 사용 1건이며 라벨 전용이라 수용.
 
+## 2026-10-02 테마 토큰 단일화
+
+- **다크 값은 `light-dark(라이트, 다크)` 한 줄에만 있다.** 전에는 `@media (prefers-color-scheme:dark)` 와 `:root[data-theme="dark"]` 가 같은 32줄을 복제해 한쪽만 고치면 테마가 갈라졌다. 이제 두 테마 블록은 `color-scheme:dark` 와 색이 아닌 `--img-adj` 만 바꾼다. global.css 가 458 → 404줄.
+- **그림자는 기하와 색을 분리했다.** `--lift-1/2/3` 는 offset·blur 를 한 번만 쓰고 `--sh-*` 색 토큰(light-dark)을 참조한다. 라이트는 기판 색조 알파, 다크는 순검정 알파로 값은 이전과 동일하다.
+- **브라우저 하한.** `light-dark()` 는 Chrome 123·Safari 17.5·Firefox 120(2024년 상반기) 이상이다. 그 아래에서는 색 토큰이 무효가 돼 흰 바탕·검정 글자의 무장식 상태로 읽힌다(깨지지는 않는다). Lightning CSS 는 폴리필 없이 그대로 내보낸다. 2026년 시점 점유율로 수용했다.
+- **검증.** `tests/theme.test.ts` 가 토큰 단일 선언과 테마 블록 내용을 고정한다. Chrome 에서 시스템 다크·강제 라이트·강제 다크 세 상태의 body/surface/accent/그림자/사진 필터가 이전 값과 같음을 확인했다.
+
 ## 기준치
 
 - Lighthouse 모바일 성능 (작업 전) 0.86. 사후 0.87 (LCP 3.8s, CLS 0.017, TBT 70ms). 측정은 `npx lighthouse` 헤드리스, `npm run preview` 대상.
