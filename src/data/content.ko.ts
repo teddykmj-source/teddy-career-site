@@ -83,6 +83,7 @@ export const ko: SiteContent = {
       description:
         '마감마다 반복되던 리포트 정리·포털 제출·발송을 하나의 흐름으로 묶었습니다. 자동화하되 발송은 사람이 승인하는 2단계 게이트로 오발송을 구조적으로 차단하고, 제출 증빙을 자동 보관해 감사 추적성을 확보하도록 설계했습니다.',
       status: '개발 중 · 테스트 케이스 200건',
+      flow: { nodes: ['리포트 정리', '포털 제출', '사람 승인', '발송'], hold: 2 },
     },
     {
       icon: 'rules',
@@ -90,6 +91,7 @@ export const ko: SiteContent = {
       description:
         '발명자가 직무발명 해당 여부를 스스로 판단하지 못해 반복되는 문의를, 판단 자동화로 줄이는 것을 목표로 설계했습니다. 법적 판단은 규칙 엔진, 설명만 AI가 맡도록 분리해 환각 여지를 없앴습니다.',
       status: '개발 중 · 테스트 케이스 34건',
+      flow: { nodes: ['발명자 문의', '규칙 엔진 판단', 'AI 설명'], hold: 1 },
     },
     {
       icon: 'search',
@@ -97,6 +99,7 @@ export const ko: SiteContent = {
       description:
         '아이디어 단계에서 선행기술을 빠르게 훑도록 특허 검색과 AI 분석을 파이프라인으로 연결했습니다. 원본 데이터는 절대 수정하지 않고 차이 리포트만 내며, 최종 판단은 항상 사람이 합니다.',
       status: '구현 완료 · 테스트 케이스 279건',
+      flow: { nodes: ['특허 검색', 'AI 분석', '차이 리포트', '사람 판단'], hold: 3 },
     },
   ],
   activitiesTitle: 'ACTIVITIES & AWARDS',

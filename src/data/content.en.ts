@@ -83,6 +83,7 @@ export const en: SiteContent = {
       description:
         'Report preparation, portal submission, and delivery — repeated every deadline — pulled into a single flow. Automated, but delivery stays behind a two-step human approval gate so nothing goes out by accident, and submission evidence is archived automatically for audit traceability.',
       status: 'In development · 200 test cases',
+      flow: { nodes: ['Report preparation', 'Portal submission', 'Human approval', 'Delivery'], hold: 2 },
     },
     {
       icon: 'rules',
@@ -90,6 +91,7 @@ export const en: SiteContent = {
       description:
         'Designed to reduce the recurring questions that arise when inventors cannot judge for themselves whether something qualifies as an employee invention. Legal judgment runs on a rule engine; the LLM only explains, which removes any room for hallucination.',
       status: 'In development · 34 test cases',
+      flow: { nodes: ['Inventor question', 'Rule engine', 'LLM explains'], hold: 1 },
     },
     {
       icon: 'search',
@@ -97,6 +99,7 @@ export const en: SiteContent = {
       description:
         'Patent search and AI analysis connected into one pipeline so ideas can be screened against prior art early. Source data is never modified — only a difference report is produced — and the final call always rests with a person.',
       status: 'Implemented · 279 test cases',
+      flow: { nodes: ['Patent search', 'AI analysis', 'Difference report', 'Final call'], hold: 3 },
     },
   ],
   activitiesTitle: 'ACTIVITIES & AWARDS',

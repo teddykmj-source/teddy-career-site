@@ -2,6 +2,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { getContent } from '../src/data';
 
 const css = () => readFileSync(fileURLToPath(new URL('../src/styles/motion.css', import.meta.url)), 'utf-8');
 const layout = () => readFileSync(fileURLToPath(new URL('../src/layouts/BaseLayout.astro', import.meta.url)), 'utf-8');
@@ -29,5 +30,36 @@ describe('motion.css 안전장치', () => {
     const bare = src.replace(/@supports[^{]*\{[\s\S]*?\n\}\n/g, '');
     expect(bare).not.toContain('animation-timeline');
     expect(bare).not.toContain('@view-transition');
+  });
+});
+
+describe('자동화 흐름도 데이터', () => {
+  const ko = getContent('ko');
+  const en = getContent('en');
+
+  it('항목마다 flow 가 있고 노드는 3~5개다', () => {
+    for (const c of [ko, en]) {
+      for (const a of c.automation) {
+        expect(a.flow.nodes.length).toBeGreaterThanOrEqual(3);
+        expect(a.flow.nodes.length).toBeLessThanOrEqual(5);
+        for (const n of a.flow.nodes) expect(n.trim()).not.toBe('');
+      }
+    }
+  });
+
+  it('KO/EN 노드 수와 hold 위치가 같다', () => {
+    ko.automation.forEach((a, i) => {
+      expect(en.automation[i].flow.nodes.length).toBe(a.flow.nodes.length);
+      expect(en.automation[i].flow.hold).toBe(a.flow.hold);
+    });
+  });
+
+  it('hold 는 노드 범위 안이다', () => {
+    for (const c of [ko, en]) {
+      for (const a of c.automation) {
+        expect(a.flow.hold).toBeGreaterThanOrEqual(0);
+        expect(a.flow.hold).toBeLessThan(a.flow.nodes.length);
+      }
+    }
   });
 });

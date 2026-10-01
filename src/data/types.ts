@@ -6,7 +6,9 @@ export interface ExperienceItem {
   current?: boolean;
 }
 export interface Highlight { icon: string; title: string; description: string; }
-export interface AutomationItem { icon: string; title: string; description: string; status: string; }
+/** 흐름도. hold 는 사람이 확인하거나 규칙이 판단하는, 한 박자 멈추는 노드의 인덱스 */
+export interface AutomationFlow { nodes: string[]; hold: number; }
+export interface AutomationItem { icon: string; title: string; description: string; status: string; flow: AutomationFlow; }
 export interface PressLink { outlet: string; url: string; }
 export interface PressGroup { title: string; links: PressLink[]; }
 export interface NavLabels { about: string; experience: string; highlights: string; automation: string; activities: string; certifications: string; press: string; }
