@@ -23,9 +23,13 @@
 - [x] 11. 설계 원칙 아이콘 3종 + 마이크로 애니메이션
 - [x] 12. 경력 타임라인 진행선 (`@supports` 안)
 - [x] 13a. Chrome 다크/라이트·모바일 375px 검수, Lighthouse 비교(0.86 → 0.87), 인계 갱신
-- [ ] 13b. 푸시, Vercel 프리뷰 확인, main 병합, 라이브 검증 (사용자 확인 후)
+- [x] 13b. 푸시, Vercel 프리뷰 확인, main 병합(ff, 47aa64c), 라이브 검증
 
 ## 되돌리는 법
 
 - 브랜치 전체. `git switch main` 하고 `feat/motion` 을 버린다.
 - 특정 연출만. Task 단위 커밋이므로 해당 커밋을 `git revert` 한다.
+
+## 완료 (2026-10-01)
+
+`feat/motion` 21 커밋을 main 에 fast-forward 병합(47aa64c) → Vercel 프로덕션 배포 → 라이브 검증 통과. 브랜치는 로컬·origin 모두 삭제했다. `npm test` 56건 통과.
