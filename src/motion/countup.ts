@@ -1,7 +1,7 @@
 // 지표 문자열에서 숫자만 떼어 0 부터 올려 보여주는 순수 함수. DOM 을 모른다.
 export interface StatParts { prefix: string; target: number; suffix: string; grouped: boolean }
 
-const NUM = /\d[\d,]*/;
+const NUM = /\d+(?:,\d{3})*/;
 
 export function parseStat(text: string): StatParts | null {
   const m = NUM.exec(text);

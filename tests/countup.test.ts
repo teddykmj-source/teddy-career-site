@@ -1,6 +1,7 @@
 // 지표 문자열 파싱과 진행률 포맷을 검증한다. 숫자 앞뒤 문자와 천 단위 구분을 보존해야 한다.
 import { describe, it, expect } from 'vitest';
 import { parseStat, formatStat, easeOut } from '../src/motion/countup';
+import { getContent } from '../src/data';
 
 describe('parseStat', () => {
   it('한글 접미사를 보존한다', () => {
@@ -42,5 +43,22 @@ describe('easeOut', () => {
     expect(easeOut(0)).toBe(0);
     expect(easeOut(1)).toBe(1);
     expect(easeOut(0.5)).toBeCloseTo(0.875);
+  });
+});
+
+describe('실제 콘텐츠 왕복', () => {
+  it('지표와 자동화 상태 문자열은 진행률 1 에서 원문으로 돌아온다', () => {
+    for (const c of [getContent('ko'), getContent('en')]) {
+      const strings = [...c.stats.map((s) => s.value), ...c.automation.map((a) => a.status)];
+      for (const s of strings) {
+        const p = parseStat(s);
+        expect(p, s).not.toBeNull();
+        expect(formatStat(p!, 1)).toBe(s);
+      }
+    }
+  });
+  it('잘못된 쉼표와 선행 0 도 원문을 보존한다', () => {
+    expect(formatStat(parseStat('항목 3, 기타')!, 1)).toBe('항목 3, 기타');
+    expect(formatStat(parseStat('1,2')!, 1)).toBe('1,2');
   });
 });
