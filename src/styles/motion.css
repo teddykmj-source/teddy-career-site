@@ -18,6 +18,11 @@
 .hero .lead{animation-delay:620ms}
 .hero .hero-cta{animation-delay:760ms}
 
+/* ── Hero 사진 카드 틸트: 런타임이 --rx/--ry 만 갱신하고 변환은 CSS 가 한다 ── */
+.stack{perspective:1200px}
+.stack-a.tilt-l{transform:rotate(-1.6deg) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s var(--ease)}
+@media (max-width:767px){.stack-a.tilt-l{transform:none}}
+
 /* ── reduced-motion 가드. 반드시 파일 끝. 신규 애니메이션은 즉시 최종 상태로 간다 ── */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}

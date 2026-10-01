@@ -30,4 +30,24 @@ function initCount(): void {
   document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => io.observe(el));
 }
 
+function initTilt(): void {
+  const stack = document.querySelector<HTMLElement>('.stack');
+  const card = document.querySelector<HTMLElement>('.stack-a');
+  if (!stack || !card || reduce) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const MAX = 5;
+  stack.addEventListener('pointermove', (e) => {
+    const r = stack.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    card.style.setProperty('--ry', `${(x * MAX * 2).toFixed(2)}deg`);
+    card.style.setProperty('--rx', `${(-y * MAX * 2).toFixed(2)}deg`);
+  });
+  stack.addEventListener('pointerleave', () => {
+    card.style.setProperty('--rx', '0deg');
+    card.style.setProperty('--ry', '0deg');
+  });
+}
+
 initCount();
+initTilt();
