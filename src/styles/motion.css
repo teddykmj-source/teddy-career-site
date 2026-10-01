@@ -56,6 +56,22 @@
 /* ── 연락 폼 완료 상태: 떠오르며 등장 ── */
 .ok.show{display:block;animation:rise-in .8s var(--ease) both}
 
+/* ── 자동화 흐름도: 카드가 .in 이 되면 왼쪽 노드부터 켜지고, hold 노드에서 점이 찍히며 한 박자 쉰다 ── */
+.flow{display:flex;flex-wrap:wrap;align-items:center;row-gap:10px;margin-top:22px;padding:0;list-style:none}
+.flow-n{position:relative;border-radius:999px;padding:6px 12px;font-size:11.5px;font-weight:550;color:var(--muted);
+  background:var(--tint-1);box-shadow:inset 0 0 0 1px var(--chip-ring)}
+.flow-n+.flow-n{margin-left:26px}
+.flow-n+.flow-n::before{content:"";position:absolute;right:100%;top:50%;width:26px;height:1px;
+  background:var(--divider-strong);transform-origin:left;transform:scaleX(0)}
+.flow-hold::after{content:"";position:absolute;top:-4px;right:-4px;width:9px;height:9px;border-radius:999px;
+  background:var(--accent);transform:scale(0)}
+.rv.in .flow-n{animation:flow-lit .6s var(--ease) both;animation-delay:var(--d)}
+.rv.in .flow-n+.flow-n::before{animation:flow-line .4s var(--ease) both;animation-delay:calc(var(--d) - 300ms)}
+.rv.in .flow-hold::after{animation:flow-pop .5s var(--ease) both;animation-delay:calc(var(--d) + 450ms)}
+@keyframes flow-lit{to{color:var(--ink);background:var(--surface);box-shadow:inset 0 0 0 1px var(--hair),var(--lift-1)}}
+@keyframes flow-line{to{transform:scaleX(1)}}
+@keyframes flow-pop{to{transform:scale(1)}}
+
 /* ── reduced-motion 가드. 반드시 파일 끝. 신규 애니메이션은 즉시 최종 상태로 간다 ── */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
