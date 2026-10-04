@@ -27,7 +27,7 @@ export const en: SiteContent = {
       period: '2022.09 — Present',
       title: 'KAON GROUP · IP Team, Manager',
       description:
-        'SEP creation, essentiality review and monetization; on-site license audit response and internal-audit process build-out; employee-invention compensation litigation; government-funded projects.',
+        'Post-VVC SEP prosecution abroad and patent sale/acquisition execution; on-site audit response for global codec licensors and a pre-audit internal review cycle; monthly royalty settlement; employee-invention program management and compensation litigation support; government standardization projects.',
       current: true,
     },
     {
