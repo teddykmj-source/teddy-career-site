@@ -16,7 +16,7 @@ export const en: SiteContent = {
   ],
   aboutTitle: 'ABOUT',
   about:
-    'I have led corporate IP practice across a range of small and mid-sized industries — cosmetics, furniture, and media. My work spans domestic and international patent, trademark, and design portfolios, cross-border IP dispute response, and employee-invention compensation systems. Today at Kaon Group I lead SEP monetization, license audits, and technology valuation.',
+    'I have handled corporate IP practice at small and mid-sized companies in cosmetics, furniture, and media. My work spans domestic and international patent, trademark, and design portfolios, cross-border IP dispute response, and employee-invention compensation systems. Today on the Kaon Group IP team I handle SEP creation and foreign prosecution, patent transactions, codec license audit response, and the employee-invention program, and I build and roll out workflow automation tools as part of the team’s AI transformation (AX).',
   skills: [
     'License audit & royalties', 'Standard-essential patents', 'Employee invention',
     'IP litigation', 'IP valuation', 'Patent portfolio',
