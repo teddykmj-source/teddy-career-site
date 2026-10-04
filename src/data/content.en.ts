@@ -105,8 +105,8 @@ export const en: SiteContent = {
   activitiesTitle: 'ACTIVITIES & AWARDS',
   activities: [
     '2021 KIPO Commissioner’s Award — Corporate IP Master (government honor)',
-    '2026 KIPA President’s Award — employee-invention compensation best practice (led the bid)',
-    '2026 KIPO Commissioner’s Award — SEP creation support program excellence (led the bid)',
+    '2026 KIPA President’s Award, excellence prize for employee-invention program best practice',
+    '2026 Minister of Intellectual Property Award, outstanding participating organization in the SEP creation support program',
     '2022 ICT Patent Management Grand Prize, Minister of Science and ICT Award (led the bid)',
     'KINPA (Korea Intellectual Property Association) — SME division vice-chair (2020–2022)',
     'SME IP-officer guidebook contributing member; JobKorea IP-role interview feature',
