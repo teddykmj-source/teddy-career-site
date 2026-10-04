@@ -59,13 +59,13 @@ export const ko: SiteContent = {
   highlights: [
     {
       icon: 'award',
-      title: '표준특허 수익화',
-      description: '필수성 검증부터 수익화까지 표준특허(SEP) 전 주기 주도',
+      title: '표준특허 권리화·거래',
+      description: '필수성 검증, Post-VVC 발명 5건의 해외 15개 출원 라인 권리화, 표준특허 매각 실사·계약 검토 실무',
     },
     {
       icon: 'shield',
       title: '라이선스 감사 대응',
-      description: 'Video·Audio codec 감사 현장 대응 및 사내 내부감사 체계 구축',
+      description: '글로벌 코덱 라이선서 현장감사부터 종결까지 대응, 감사인 제출 최종본 작성, 사전 내부감사 체계 구축',
     },
     {
       icon: 'gavel',

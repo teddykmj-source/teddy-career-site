@@ -59,13 +59,13 @@ export const en: SiteContent = {
   highlights: [
     {
       icon: 'award',
-      title: 'SEP monetization',
-      description: 'Led the full SEP lifecycle from essentiality review to monetization.',
+      title: 'SEP prosecution and transactions',
+      description: 'Essentiality review; five Post-VVC inventions prosecuted across 15 foreign filing lines; due diligence and contract review for an SEP sale.',
     },
     {
       icon: 'shield',
       title: 'License audit response',
-      description: 'Handled on-site Video/Audio codec audits and built an internal-audit process.',
+      description: 'Handled global codec licensor audits from on-site review to close, drafted the final submissions to auditors, and set up a pre-audit internal review cycle.',
     },
     {
       icon: 'gavel',
