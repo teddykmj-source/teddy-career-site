@@ -70,6 +70,11 @@
 - `tests/fonts.test.ts` 가 jsdelivr 링크 부재와 Archivo 비동기 로드를 고정한다.
 - **효과.** Lighthouse 모바일 0.96 유지, LCP 2.6s → 2.5s, TBT 60 → 30ms, CLS 0.036 → 0.04. 외부 출처는 Google Fonts(Archivo) 하나만 남았다.
 
+## 2026-10-05 본문 건너뛰기 링크
+
+- BaseLayout body 맨 앞에 `.skip` 링크(ko "본문으로 건너뛰기", en "Skip to content")를 두고, 네 페이지의 `main#top` 에 `tabindex="-1"` 을 줘 포커스 목적지로 삼았다. 평소엔 화면 밖에 있다가 키보드 포커스를 받으면 왼쪽 위에 CTA 색 알약으로 나타난다.
+- Chrome 에서 Tab → Enter → Tab 이 내비를 건너뛰고 본문 첫 링크("성과")로 가는 것을 확인했다. `tests/skip-link.test.ts` 가 구조를 고정한다.
+
 ## 기준치
 
 - Lighthouse 모바일 성능 (작업 전) 0.86. 사후 0.87 (LCP 3.8s, CLS 0.017, TBT 70ms). 측정은 `npx lighthouse` 헤드리스, `npm run preview` 대상.
