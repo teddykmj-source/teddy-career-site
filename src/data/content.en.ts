@@ -90,7 +90,7 @@ export const en: SiteContent = {
       title: 'Employee-invention filing bot',
       description:
         'Designed to reduce the recurring questions that arise when inventors cannot judge for themselves whether something qualifies as an employee invention. Legal judgment runs on a rule engine; the LLM only explains, which removes any room for hallucination.',
-      status: 'In development · 34 test cases',
+      status: 'In development · 105 test cases',
       flow: { nodes: ['Inventor question', 'Rule engine', 'LLM explains'], hold: 1 },
     },
     {
