@@ -27,7 +27,7 @@ export const en: SiteContent = {
       period: '2022.09 — Present',
       title: 'KAON GROUP · IP Team, Manager',
       description:
-        'Post-VVC SEP prosecution abroad and patent sale/acquisition execution; on-site audit response for global codec licensors and a pre-audit internal review cycle; monthly royalty settlement; employee-invention program management and compensation litigation support; government standardization projects.',
+        'Post-VVC SEP prosecution abroad and patent sale/acquisition execution; on-site audit response for global codec licensors and a pre-audit internal review cycle; monthly royalty settlement; employee-invention program management and compensation dispute response; government standardization projects.',
       current: true,
     },
     {
@@ -105,9 +105,9 @@ export const en: SiteContent = {
   activitiesTitle: 'ACTIVITIES & AWARDS',
   activities: [
     '2021 KIPO Commissioner’s Award — Corporate IP Master (government honor)',
-    '2026 KIPA President’s Award, excellence prize for employee-invention program best practice',
-    '2026 Minister of Intellectual Property Award, outstanding participating organization in the SEP creation support program',
-    '2022 ICT Patent Management Grand Prize, Minister of Science and ICT Award (led the bid)',
+    '2026 KIPA President’s Award, excellence prize for employee-invention program best practice (organizational award)',
+    '2026 Minister of Intellectual Property Award, outstanding participating organization in the SEP creation support program (organizational award)',
+    '2022 ICT Patent Management Grand Prize, Minister of Science and ICT Award (corporate award)',
     'KINPA (Korea Intellectual Property Association) — SME division vice-chair (2020–2022)',
     'SME IP-officer guidebook contributing member; JobKorea IP-role interview feature',
   ],
@@ -123,14 +123,14 @@ export const en: SiteContent = {
       ],
     },
     {
-      title: '2026 KIPA President’s Award — employee-invention best practice',
+      title: '2026 KIPA President’s Award, employee-invention best practice (organizational award)',
       links: [
         { outlet: 'Financial News', url: 'https://www.fnnews.com/news/202606241027072274' },
         { outlet: 'Asiae', url: 'https://www.asiae.co.kr/article/2026052708335509155' },
       ],
     },
     {
-      title: '2022 ICT Patent Management Grand Prize — Minister of Science and ICT',
+      title: '2022 ICT Patent Management Grand Prize, Minister of Science and ICT (corporate award)',
       links: [
         { outlet: 'Curiosis', url: 'https://curiosis.co.kr/2022-ict-%ED%8A%B9%ED%97%88%EA%B2%BD%EC%98%81%EB%8C%80%EC%83%81-%EC%8B%9C%EC%83%81%EC%8B%9D-%EA%B0%9C%EC%B5%9C%EA%B8%B0%EC%97%85-6%EA%B0%9C%EC%82%AC%C2%B7%EA%B0%9C%EC%9D%B8-6%EC%9D%B8/' },
         { outlet: 'ETNews', url: 'https://www.etnews.com/20221213000125' },
